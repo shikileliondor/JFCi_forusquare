@@ -20,10 +20,12 @@ const styles: Record<string, CSSProperties> = {
     },
     frame: {
         width: '1440px',
-        height: '860px',
+        minHeight: '860px',
         background: '#FFFFFF',
         color: '#1A1A1A',
         overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
     },
 };
 
@@ -93,26 +95,6 @@ export default function LookbackHero() {
                     </div>
                 </nav>
 
-                <div style={{ padding: '8px 20px 0', textAlign: 'center' }}>
-                    <h1
-                        style={{
-                            margin: 0,
-                            fontFamily: 'Anton, sans-serif',
-                            fontSize: '64px',
-                            lineHeight: '100%',
-                            letterSpacing: '-0.01em',
-                            color: '#1A1A1A',
-                            textTransform: 'uppercase',
-                        }}
-                    >
-                        Better Off®
-                        <br />
-                        THE LOOKBACK
-                        <br />
-                        (BO®S/2026)
-                    </h1>
-                </div>
-
                 <div
                     style={{
                         height: '360px',
@@ -140,44 +122,7 @@ export default function LookbackHero() {
                     ))}
                 </div>
 
-                <div
-                    style={{
-                        height: '64px',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'flex-end',
-                        padding: '16px 20px 4px',
-                    }}
-                >
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '2px',
-                            fontFamily: '"IBM Plex Mono", monospace',
-                        }}
-                    >
-                        <span
-                            style={{
-                                fontSize: '10px',
-                                color: '#666666',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.1em',
-                            }}
-                        >
-                            WEBSITE
-                        </span>
-                        <span
-                            style={{
-                                fontSize: '20px',
-                                fontWeight: 500,
-                                color: '#1A1A1A',
-                            }}
-                        >
-                            The Lookback
-                        </span>
-                    </div>
-
+                <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '16px 20px 4px' }}>
                     <div style={{ display: 'flex', gap: '8px' }}>
                         <button
                             type="button"
@@ -236,7 +181,7 @@ export default function LookbackHero() {
 
                 <div
                     style={{
-                        margin: '16px 20px 0',
+                        margin: 'auto 20px 0',
                         height: '28px',
                         position: 'relative',
                     }}
