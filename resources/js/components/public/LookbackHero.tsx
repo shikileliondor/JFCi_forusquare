@@ -120,8 +120,7 @@ export default function LookbackHero() {
                         alignItems: 'flex-start',
                         gap: '24px',
                         padding: '24px 20px 0',
-                        overflowX: 'auto',
-                        overflowY: 'hidden',
+                        overflow: 'hidden',
                     }}
                 >
                     {photoDimensions.map((dimension, index) => (
