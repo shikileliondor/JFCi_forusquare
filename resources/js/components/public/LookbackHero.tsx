@@ -56,20 +56,6 @@ const styles: Record<string, CSSProperties> = {
     },
 };
 
-const buttonStyle: CSSProperties = {
-    width: '30px',
-    height: '30px',
-    border: '1.5px solid #1A1A1A',
-    borderRadius: '50%',
-    background: 'transparent',
-    color: '#1A1A1A',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer',
-    transition: 'all 160ms ease',
-};
-
 export default function LookbackHero() {
     return (
         <section style={styles.page}>
@@ -196,76 +182,6 @@ export default function LookbackHero() {
                     ))}
                 </div>
 
-                <div
-                    style={{
-                        minHeight: '64px',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'flex-end',
-                        flexWrap: 'wrap',
-                        gap: '12px',
-                        padding: '14px clamp(12px, 3vw, 22px) 4px',
-                    }}
-                >
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '2px',
-                            fontFamily: '"IBM Plex Mono", monospace',
-                        }}
-                    >
-                        <span
-                            style={{
-                                fontSize: '10px',
-                                color: '#666666',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.1em',
-                            }}
-                        >
-                            WEBSITE
-                        </span>
-                        <span
-                            style={{
-                                fontSize: 'clamp(18px, 4vw, 20px)',
-                                fontWeight: 500,
-                                color: '#1A1A1A',
-                            }}
-                        >
-                            The Lookback
-                        </span>
-                    </div>
-
-                    <div style={{ display: 'flex', gap: '8px' }}>
-                        <button type="button" style={buttonStyle}>
-                            {' '}
-                            <span
-                                style={{
-                                    fontSize: '13px',
-                                    transform: 'rotate(-45deg)',
-                                }}
-                            >
-                                ↗
-                            </span>
-                        </button>
-                        <button type="button" style={buttonStyle}>
-                            <svg
-                                width="12"
-                                height="14"
-                                viewBox="0 0 12 14"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M2 1h8v12l-4-3-4 3V1z"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                    fill="none"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
             </div>
         </section>
     );
