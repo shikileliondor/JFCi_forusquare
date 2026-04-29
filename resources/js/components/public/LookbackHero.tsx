@@ -16,6 +16,7 @@ const styles: Record<string, CSSProperties> = {
         alignItems: 'center',
         justifyContent: 'center',
         background: '#FFFFFF',
+        overflow: 'hidden',
     },
     frame: {
         width: '1440px',
@@ -119,7 +120,7 @@ export default function LookbackHero() {
                         alignItems: 'flex-start',
                         gap: '24px',
                         padding: '24px 20px 0',
-                        overflowX: 'auto',
+                        overflow: 'hidden',
                     }}
                 >
                     {photoDimensions.map((dimension, index) => (
