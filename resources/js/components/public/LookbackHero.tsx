@@ -1,11 +1,36 @@
 import type { CSSProperties } from 'react';
 
 const photoDimensions = [
-    { width: 355, height: 515, alt: 'Surfer inside a breaking wave', offsetTop: 28 },
-    { width: 355, height: 545, alt: 'Surfer cutting through a wave crest', offsetTop: 12 },
-    { width: 380, height: 325, alt: 'Surfer waiting near the shore', offsetTop: 92 },
-    { width: 330, height: 515, alt: 'Surfer gliding on an open face wave', offsetTop: 28 },
-    { width: 355, height: 325, alt: 'Surfer diving under breaking surf', offsetTop: 76 },
+    {
+        width: 355,
+        height: 515,
+        alt: 'Surfer inside a breaking wave',
+        offsetTop: 20,
+    },
+    {
+        width: 355,
+        height: 545,
+        alt: 'Surfer cutting through a wave crest',
+        offsetTop: 10,
+    },
+    {
+        width: 380,
+        height: 325,
+        alt: 'Surfer waiting near the shore',
+        offsetTop: 72,
+    },
+    {
+        width: 330,
+        height: 515,
+        alt: 'Surfer gliding on an open face wave',
+        offsetTop: 18,
+    },
+    {
+        width: 355,
+        height: 325,
+        alt: 'Surfer diving under breaking surf',
+        offsetTop: 56,
+    },
 ] as const;
 
 const styles: Record<string, CSSProperties> = {
@@ -15,15 +40,19 @@ const styles: Record<string, CSSProperties> = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#FFFFFF',
-        overflow: 'hidden',
+        background:
+            'radial-gradient(circle at 50% 0%, #ffffff 0%, #f6f6f6 42%, #eeeeee 100%)',
+        padding: 'clamp(8px, 2vw, 28px)',
     },
     frame: {
-        width: '1440px',
-        height: '860px',
-        background: '#FFFFFF',
+        width: 'min(1440px, 100%)',
+        minHeight: 'min(860px, calc(100vh - 16px))',
+        background: '#F7F7F7',
         color: '#1A1A1A',
+        borderRadius: '24px',
+        boxShadow: '0 16px 60px rgba(17, 17, 17, 0.15)',
         overflow: 'hidden',
+        border: '1px solid rgba(0, 0, 0, 0.08)',
     },
 };
 
@@ -38,7 +67,7 @@ const buttonStyle: CSSProperties = {
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
-    transition: 'background-color 160ms ease, color 160ms ease',
+    transition: 'all 160ms ease',
 };
 
 export default function LookbackHero() {
@@ -47,11 +76,13 @@ export default function LookbackHero() {
             <div style={styles.frame}>
                 <nav
                     style={{
-                        height: '40px',
+                        minHeight: '40px',
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        padding: '12px 20px',
+                        padding: '12px clamp(12px, 3vw, 22px)',
+                        gap: '8px',
+                        flexWrap: 'wrap',
                     }}
                 >
                     <div
@@ -60,7 +91,8 @@ export default function LookbackHero() {
                             gap: '6px',
                             alignItems: 'center',
                             fontFamily: '"IBM Plex Mono", monospace',
-                            fontSize: '11px',
+                            fontSize: 'clamp(10px, 1.8vw, 11px)',
+                            flexWrap: 'wrap',
                         }}
                     >
                         <span style={{ color: '#333333' }}>Timeline</span>
@@ -93,16 +125,22 @@ export default function LookbackHero() {
                     </div>
                 </nav>
 
-                <div style={{ padding: '8px 20px 0', textAlign: 'center' }}>
+                <div
+                    style={{
+                        padding: '8px clamp(12px, 3vw, 22px) 0',
+                        textAlign: 'center',
+                    }}
+                >
                     <h1
                         style={{
                             margin: 0,
                             fontFamily: 'Anton, sans-serif',
-                            fontSize: '64px',
-                            lineHeight: '100%',
+                            fontSize: 'clamp(36px, 8vw, 66px)',
+                            lineHeight: '95%',
                             letterSpacing: '-0.01em',
-                            color: '#1A1A1A',
+                            color: '#111111',
                             textTransform: 'uppercase',
+                            textWrap: 'balance',
                         }}
                     >
                         Better Off®
@@ -115,26 +153,44 @@ export default function LookbackHero() {
 
                 <div
                     style={{
-                        height: '360px',
+                        height: 'clamp(250px, 45vw, 400px)',
                         display: 'flex',
                         alignItems: 'flex-start',
-                        gap: '24px',
-                        padding: '24px 20px 0',
-                        overflow: 'hidden',
+                        gap: 'clamp(12px, 2.2vw, 24px)',
+                        padding: '16px clamp(12px, 3vw, 22px) 0',
+                        overflowX: 'auto',
+                        overflowY: 'hidden',
+                        scrollSnapType: 'x mandatory',
                     }}
                 >
                     {photoDimensions.map((dimension, index) => (
                         <img
                             key={dimension.alt}
-                            src={`https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=${dimension.width * 3}&h=${dimension.height * 3}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
+                            src={`https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=${dimension.width * 2}&h=${dimension.height * 2}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
                             alt={dimension.alt}
                             style={{
-                                width: `${dimension.width}px`,
-                                minWidth: `${dimension.width}px`,
-                                height: `${dimension.height}px`,
-                                marginTop: `${dimension.offsetTop}px`,
-                                borderRadius: '0',
+                                width: `clamp(150px, ${Math.round(dimension.width / 3.2)}px + 10vw, ${dimension.width}px)`,
+                                minWidth: `clamp(150px, ${Math.round(dimension.width / 3.2)}px + 10vw, ${dimension.width}px)`,
+                                height: `clamp(190px, ${Math.round(dimension.height / 3.4)}px + 12vw, ${dimension.height}px)`,
+                                marginTop: `clamp(0px, ${Math.round(dimension.offsetTop / 2)}px, ${dimension.offsetTop}px)`,
                                 objectFit: 'cover',
+                                scrollSnapAlign: 'center',
+                                borderRadius: '16px',
+                                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.2)',
+                                transition:
+                                    'transform 220ms ease, filter 220ms ease',
+                                filter: 'saturate(1.02) contrast(1.02)',
+                            }}
+                            onMouseEnter={(event) => {
+                                event.currentTarget.style.transform =
+                                    'translateY(-6px) scale(1.015)';
+                                event.currentTarget.style.filter =
+                                    'saturate(1.12) contrast(1.05)';
+                            }}
+                            onMouseLeave={(event) => {
+                                event.currentTarget.style.transform = 'none';
+                                event.currentTarget.style.filter =
+                                    'saturate(1.02) contrast(1.02)';
                             }}
                         />
                     ))}
@@ -142,11 +198,13 @@ export default function LookbackHero() {
 
                 <div
                     style={{
-                        height: '64px',
+                        minHeight: '64px',
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'flex-end',
-                        padding: '16px 20px 4px',
+                        flexWrap: 'wrap',
+                        gap: '12px',
+                        padding: '14px clamp(12px, 3vw, 22px) 4px',
                     }}
                 >
                     <div
@@ -169,7 +227,7 @@ export default function LookbackHero() {
                         </span>
                         <span
                             style={{
-                                fontSize: '20px',
+                                fontSize: 'clamp(18px, 4vw, 20px)',
                                 fontWeight: 500,
                                 color: '#1A1A1A',
                             }}
@@ -179,20 +237,8 @@ export default function LookbackHero() {
                     </div>
 
                     <div style={{ display: 'flex', gap: '8px' }}>
-                        <button
-                            type="button"
-                            style={buttonStyle}
-                            onMouseEnter={(event) => {
-                                event.currentTarget.style.background =
-                                    '#1A1A1A';
-                                event.currentTarget.style.color = '#FFFFFF';
-                            }}
-                            onMouseLeave={(event) => {
-                                event.currentTarget.style.background =
-                                    'transparent';
-                                event.currentTarget.style.color = '#1A1A1A';
-                            }}
-                        >
+                        <button type="button" style={buttonStyle}>
+                            {' '}
                             <span
                                 style={{
                                     fontSize: '13px',
@@ -202,20 +248,7 @@ export default function LookbackHero() {
                                 ↗
                             </span>
                         </button>
-                        <button
-                            type="button"
-                            style={buttonStyle}
-                            onMouseEnter={(event) => {
-                                event.currentTarget.style.background =
-                                    '#1A1A1A';
-                                event.currentTarget.style.color = '#FFFFFF';
-                            }}
-                            onMouseLeave={(event) => {
-                                event.currentTarget.style.background =
-                                    'transparent';
-                                event.currentTarget.style.color = '#1A1A1A';
-                            }}
-                        >
+                        <button type="button" style={buttonStyle}>
                             <svg
                                 width="12"
                                 height="14"
@@ -232,121 +265,6 @@ export default function LookbackHero() {
                             </svg>
                         </button>
                     </div>
-                </div>
-
-                <div
-                    style={{
-                        margin: '16px 20px 0',
-                        height: '28px',
-                        position: 'relative',
-                    }}
-                >
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: 0,
-                            width: '100%',
-                            height: '1px',
-                            transform: 'translateY(-50%)',
-                            background: '#AAAAAA',
-                        }}
-                    />
-
-                    <div
-                        style={{
-                            position: 'absolute',
-                            left: 0,
-                            top: '50%',
-                            transform: 'translateY(-4px)',
-                        }}
-                    >
-                        <div
-                            style={{
-                                width: '1px',
-                                height: '8px',
-                                background: '#666666',
-                            }}
-                        />
-                        <div
-                            style={{
-                                marginTop: '2px',
-                                fontFamily: '"IBM Plex Mono", monospace',
-                                fontSize: '9px',
-                                color: '#666666',
-                            }}
-                        >
-                            MARY
-                        </div>
-                    </div>
-
-                    <div
-                        style={{
-                            position: 'absolute',
-                            left: '50%',
-                            top: '50%',
-                            transform: 'translate(-50%, -4px)',
-                        }}
-                    >
-                        <div
-                            style={{
-                                width: '1px',
-                                height: '8px',
-                                background: '#666666',
-                                margin: '0 auto',
-                            }}
-                        />
-                        <div
-                            style={{
-                                marginTop: '2px',
-                                fontFamily: '"IBM Plex Mono", monospace',
-                                fontSize: '9px',
-                                color: '#666666',
-                            }}
-                        >
-                            JANUARY
-                        </div>
-                    </div>
-
-                    <div
-                        style={{
-                            position: 'absolute',
-                            right: 0,
-                            top: '50%',
-                            transform: 'translateY(-4px)',
-                        }}
-                    >
-                        <div
-                            style={{
-                                width: '1px',
-                                height: '8px',
-                                background: '#666666',
-                                marginLeft: 'auto',
-                            }}
-                        />
-                        <div
-                            style={{
-                                marginTop: '2px',
-                                fontFamily: '"IBM Plex Mono", monospace',
-                                fontSize: '9px',
-                                color: '#666666',
-                            }}
-                        >
-                            DECEMBER
-                        </div>
-                    </div>
-
-                    <div
-                        style={{
-                            position: 'absolute',
-                            left: '48%',
-                            top: '50%',
-                            transform: 'translateY(-10px)',
-                            width: '1px',
-                            height: '20px',
-                            background: '#1A1A1A',
-                        }}
-                    />
                 </div>
             </div>
         </section>
