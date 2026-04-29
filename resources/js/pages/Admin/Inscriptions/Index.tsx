@@ -1,0 +1,5 @@
+import { Head, Link, router } from '@inertiajs/react';
+
+export default function Index({ inscriptions, filters, evenements }: any) {
+    return (<div className="p-6"><Head title="Inscriptions" /><h1 className="text-2xl font-bold mb-4">Inscriptions</h1><div className="mb-4 flex gap-2"><input defaultValue={filters.q || ''} placeholder="Recherche" onBlur={(e) => router.get('/admin/inscriptions', { ...filters, q: e.target.value }, { preserveState: true })} className="border p-2" /></div><table className="w-full text-sm"><thead><tr><th>Code</th><th>Nom</th><th>Prénom</th><th>Téléphone</th><th>Email</th><th>Événement</th><th>Statut</th><th>Date</th></tr></thead><tbody>{inscriptions.data.map((item: any) => <tr key={item.id}><td><Link href={`/admin/inscriptions/${item.id}`}>{item.code_inscription}</Link></td><td>{item.nom}</td><td>{item.prenom}</td><td>{item.telephone}</td><td>{item.email}</td><td>{item.evenement?.titre}</td><td>{item.statut_paiement}</td><td>{item.date_inscription}</td></tr>)}</tbody></table></div>);
+}
