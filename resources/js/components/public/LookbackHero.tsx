@@ -171,11 +171,11 @@ export default function LookbackHero() {
                             textWrap: 'balance',
                         }}
                     >
-                        Better Off®
+                        Jeunesse ®
                         <br />
-                        THE LOOKBACK
+                        Foursquare
                         <br />
-                        (BO®S/2026)
+                        Cote d'ivoire 
                     </h1>
                 </div>
 
@@ -219,7 +219,7 @@ export default function LookbackHero() {
                                 }}
                             >
                                 <img
-                                    src={`https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=${dimension.width * 2}&h=${dimension.height * 2}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
+                                    src={`/images/images .jpg=${dimension.width * 2}&h=${dimension.height * 2}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
                                     alt={dimension.alt}
                                     style={{
                                         width: `clamp(150px, ${Math.round(dimension.width / 3.2)}px + 10vw, ${dimension.width}px)`,

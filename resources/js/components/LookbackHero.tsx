@@ -116,10 +116,10 @@ export default function LookbackHero({ photos }: LookbackProps) {
                         margin: 0,
                     }}
                 >
-                    Better Off®<br />
-                    THE LOOKBACK
+                    Jeunesse®<br />
+                    Foursquare 
                     <br />
-                    (BO®S/2026)
+                    Cote d'ivoire
                 </h1>
             </div>
 
