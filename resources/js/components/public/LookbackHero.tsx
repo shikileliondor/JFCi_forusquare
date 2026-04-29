@@ -1,11 +1,51 @@
 import type { CSSProperties } from 'react';
 
-const photoDimensions = [
-    { width: 110, height: 160, alt: 'Surfer inside a breaking wave' },
-    { width: 120, height: 175, alt: 'Surfer cutting through a wave crest' },
-    { width: 130, height: 150, alt: 'Surfer waiting near the shore' },
-    { width: 115, height: 170, alt: 'Surfer gliding on an open face wave' },
-    { width: 100, height: 185, alt: 'Surfer diving under breaking surf' },
+const collagePhotos = [
+    {
+        alt: 'Legacy surfing moment in a deep wave',
+        src: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=580&h=740&q=80',
+        width: 150,
+        height: 210,
+        top: 215,
+        left: 32,
+        delay: '0.08s',
+    },
+    {
+        alt: 'Editorial vertical image of a rider crossing the line-up',
+        src: 'https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=760&h=1080&q=80',
+        width: 260,
+        height: 360,
+        top: 48,
+        left: 176,
+        delay: '0.18s',
+    },
+    {
+        alt: 'Medium frame showing a tinted ocean scene',
+        src: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=680&h=530&q=80',
+        width: 232,
+        height: 186,
+        top: 164,
+        left: 462,
+        delay: '0.28s',
+    },
+    {
+        alt: 'Small documentary picture from the archive',
+        src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=520&h=680&q=80',
+        width: 138,
+        height: 194,
+        top: 282,
+        left: 724,
+        delay: '0.38s',
+    },
+    {
+        alt: 'Large premium image balancing the right side',
+        src: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=980&h=780&q=80',
+        width: 334,
+        height: 252,
+        top: 118,
+        left: 884,
+        delay: '0.48s',
+    },
 ] as const;
 
 const styles: Record<string, CSSProperties> = {
@@ -97,40 +137,48 @@ export default function LookbackHero() {
                         style={{
                             margin: 0,
                             fontFamily: 'Anton, sans-serif',
-                            fontSize: '64px',
-                            lineHeight: '100%',
-                            letterSpacing: '-0.01em',
-                            color: '#1A1A1A',
+                            fontSize: 'clamp(72px, 10vw, 132px)',
+                            lineHeight: '88%',
+                            letterSpacing: '-0.02em',
+                            color: '#0F1A2B',
                             textTransform: 'uppercase',
+                            position: 'relative',
+                            zIndex: 4,
+                            transform: 'translateY(58px)',
                         }}
                     >
-                        Better Off®
+                        JFCI
                         <br />
-                        THE LOOKBACK
+                        25 ANS D’HISTOIRE
                         <br />
-                        (BO®S/2026)
+                        (2000–2025)
                     </h1>
                 </div>
 
                 <div
                     style={{
-                        height: '240px',
-                        display: 'flex',
-                        alignItems: 'flex-end',
-                        gap: '8px',
-                        padding: '24px 20px 0',
+                        position: 'relative',
+                        height: '470px',
+                        marginTop: '-12px',
+                        padding: '0 20px',
                     }}
                 >
-                    {photoDimensions.map((dimension, index) => (
+                    {collagePhotos.map((photo) => (
                         <img
-                            key={dimension.alt}
-                            src={`https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=${dimension.width * 3}&h=${dimension.height * 3}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
-                            alt={dimension.alt}
+                            key={photo.alt}
+                            src={photo.src}
+                            alt={photo.alt}
                             style={{
-                                width: `${dimension.width}px`,
-                                height: `${dimension.height}px`,
-                                borderRadius: '4px',
+                                position: 'absolute',
+                                width: `${photo.width}px`,
+                                height: `${photo.height}px`,
+                                top: `${photo.top}px`,
+                                left: `${photo.left}px`,
+                                borderRadius: '6px',
                                 objectFit: 'cover',
+                                boxShadow: '0 14px 30px rgba(15, 26, 43, 0.08)',
+                                animation: `collageEnter 620ms cubic-bezier(0.22, 1, 0.36, 1) both`,
+                                animationDelay: photo.delay,
                             }}
                         />
                     ))}
@@ -344,6 +392,18 @@ export default function LookbackHero() {
                         }}
                     />
                 </div>
+                <style>
+                    {`@keyframes collageEnter {
+                        from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }`}
+                </style>
             </div>
         </section>
     );
