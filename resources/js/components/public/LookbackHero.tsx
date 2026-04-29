@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import { useMemo, useState } from 'react';
 
 const photoDimensions = [
     {
@@ -33,6 +34,41 @@ const photoDimensions = [
     },
 ] as const;
 
+const storyContent = [
+    {
+        label: 'INSPIRE',
+        month: 'NOVEMBER',
+        title: 'WU-NOPOLY IS OFFICIALLY OUT',
+        description:
+            'Le projet transforme un visuel fort en narration éditoriale. Ici, chaque image devient une porte d’entrée vers une lecture longue, claire et immersive.',
+        source: '#',
+    },
+    {
+        label: 'FEATURE',
+        month: 'OCTOBER',
+        title: 'COASTAL LINES IN MOTION',
+        description:
+            'Une direction artistique où les rythmes visuels racontent le mouvement. Le but est de donner une sensation de progression au scroll et au clic.',
+        source: '#',
+    },
+    {
+        label: 'ARCHIVE',
+        month: 'SEPTEMBER',
+        title: 'FRAME STUDY: OCEAN ENERGY',
+        description:
+            'Un focus sur la composition: masse, contraste et respiration. La mise en page privilégie le contenu éditorial après la sélection de la carte.',
+        source: '#',
+    },
+    {
+        label: 'JOURNAL',
+        month: 'AUGUST',
+        title: 'SURF CULTURE IN DETAIL',
+        description:
+            'La carte agit comme un teaser. Le panneau “show” à droite permet de prolonger l’attention sans quitter le contexte de la galerie.',
+        source: '#',
+    },
+] as const;
+
 const styles: Record<string, CSSProperties> = {
     page: {
         width: '100%',
@@ -57,6 +93,12 @@ const styles: Record<string, CSSProperties> = {
 };
 
 export default function LookbackHero() {
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+    const visiblePhotos = useMemo(() => {
+        return photoDimensions.filter((_, index) => index !== 2);
+    }, []);
+
     return (
         <section style={styles.page}>
             <div style={styles.frame}>
@@ -139,49 +181,160 @@ export default function LookbackHero() {
 
                 <div
                     style={{
-                        height: 'clamp(250px, 45vw, 400px)',
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: 'clamp(12px, 2.2vw, 24px)',
-                        padding: '16px clamp(12px, 3vw, 22px) 0',
-                        overflowX: 'auto',
-                        overflowY: 'hidden',
-                        scrollSnapType: 'x mandatory',
+                        display: 'grid',
+                        gridTemplateColumns:
+                            selectedIndex === null
+                                ? '1fr'
+                                : 'minmax(0, 1fr) minmax(350px, 42%)',
+                        gap: '0',
+                        alignItems: 'stretch',
                     }}
                 >
-                    {photoDimensions.map((dimension, index) => (
-                        <img
-                            key={dimension.alt}
-                            src={`https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=${dimension.width * 2}&h=${dimension.height * 2}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
-                            alt={dimension.alt}
-                            style={{
-                                width: `clamp(150px, ${Math.round(dimension.width / 3.2)}px + 10vw, ${dimension.width}px)`,
-                                minWidth: `clamp(150px, ${Math.round(dimension.width / 3.2)}px + 10vw, ${dimension.width}px)`,
-                                height: `clamp(190px, ${Math.round(dimension.height / 3.4)}px + 12vw, ${dimension.height}px)`,
-                                marginTop: `clamp(0px, ${Math.round(dimension.offsetTop / 2)}px, ${dimension.offsetTop}px)`,
-                                objectFit: 'cover',
-                                scrollSnapAlign: 'center',
-                                borderRadius: '16px',
-                                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.2)',
-                                transition:
-                                    'transform 220ms ease, filter 220ms ease',
-                                filter: 'saturate(1.02) contrast(1.02)',
-                            }}
-                            onMouseEnter={(event) => {
-                                event.currentTarget.style.transform =
-                                    'translateY(-6px) scale(1.015)';
-                                event.currentTarget.style.filter =
-                                    'saturate(1.12) contrast(1.05)';
-                            }}
-                            onMouseLeave={(event) => {
-                                event.currentTarget.style.transform = 'none';
-                                event.currentTarget.style.filter =
-                                    'saturate(1.02) contrast(1.02)';
-                            }}
-                        />
-                    ))}
-                </div>
+                    <div
+                        style={{
+                            height: 'clamp(250px, 45vw, 400px)',
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: 'clamp(12px, 2.2vw, 24px)',
+                            padding: '16px clamp(12px, 3vw, 22px) 0',
+                            overflowX: 'auto',
+                            overflowY: 'hidden',
+                            scrollSnapType: 'x mandatory',
+                            borderRight:
+                                selectedIndex === null
+                                    ? 'none'
+                                    : '1px solid rgba(0, 0, 0, 0.15)',
+                        }}
+                    >
+                        {visiblePhotos.map((dimension, index) => (
+                            <button
+                                key={dimension.alt}
+                                type="button"
+                                onClick={() => setSelectedIndex(index)}
+                                style={{
+                                    border: 'none',
+                                    padding: 0,
+                                    background: 'transparent',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                <img
+                                    src={`https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=${dimension.width * 2}&h=${dimension.height * 2}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
+                                    alt={dimension.alt}
+                                    style={{
+                                        width: `clamp(150px, ${Math.round(dimension.width / 3.2)}px + 10vw, ${dimension.width}px)`,
+                                        minWidth: `clamp(150px, ${Math.round(dimension.width / 3.2)}px + 10vw, ${dimension.width}px)`,
+                                        height: `clamp(190px, ${Math.round(dimension.height / 3.4)}px + 12vw, ${dimension.height}px)`,
+                                        marginTop: `clamp(0px, ${Math.round(dimension.offsetTop / 2)}px, ${dimension.offsetTop}px)`,
+                                        objectFit: 'cover',
+                                        scrollSnapAlign: 'center',
+                                        borderRadius: 0,
+                                        boxShadow:
+                                            selectedIndex === index
+                                                ? '0 0 0 2px #111111'
+                                                : '0 12px 30px rgba(0, 0, 0, 0.2)',
+                                        transition:
+                                            'transform 220ms ease, filter 220ms ease',
+                                        filter: 'saturate(1.02) contrast(1.02)',
+                                    }}
+                                />
+                            </button>
+                        ))}
+                    </div>
 
+                    {selectedIndex !== null ? (
+                        <aside
+                            style={{
+                                padding: '18px clamp(18px, 2vw, 30px)',
+                                background: '#F7F7F7',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: '24px',
+                                }}
+                            >
+                                <button
+                                    type="button"
+                                    onClick={() => setSelectedIndex(null)}
+                                    style={{
+                                        border: 'none',
+                                        background: 'transparent',
+                                        fontSize: '16px',
+                                        fontWeight: 600,
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    Close
+                                </button>
+                                <a
+                                    href={storyContent[selectedIndex].source}
+                                    style={{
+                                        color: '#111111',
+                                        fontSize: '16px',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    Source ↗
+                                </a>
+                            </div>
+
+                            <span
+                                style={{
+                                    display: 'inline-block',
+                                    background: '#E9E2F7',
+                                    color: '#7D58C2',
+                                    padding: '6px 12px',
+                                    fontFamily: '"IBM Plex Mono", monospace',
+                                    fontSize: '14px',
+                                    fontWeight: 600,
+                                    marginBottom: '14px',
+                                }}
+                            >
+                                {storyContent[selectedIndex].label}
+                            </span>
+
+                            <p
+                                style={{
+                                    marginTop: 0,
+                                    marginBottom: '12px',
+                                    fontFamily: '"IBM Plex Mono", monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '0.02em',
+                                }}
+                            >
+                                ({storyContent[selectedIndex].month})
+                            </p>
+
+                            <h2
+                                style={{
+                                    marginTop: 0,
+                                    marginBottom: '18px',
+                                    fontSize: 'clamp(38px, 4.4vw, 74px)',
+                                    lineHeight: '95%',
+                                    letterSpacing: '-0.02em',
+                                    textTransform: 'uppercase',
+                                }}
+                            >
+                                {storyContent[selectedIndex].title}
+                            </h2>
+
+                            <p
+                                style={{
+                                    margin: 0,
+                                    fontSize: 'clamp(18px, 1.6vw, 24px)',
+                                    lineHeight: 1.5,
+                                    maxWidth: '46ch',
+                                }}
+                            >
+                                {storyContent[selectedIndex].description}
+                            </p>
+                        </aside>
+                    ) : null}
+                </div>
             </div>
         </section>
     );
