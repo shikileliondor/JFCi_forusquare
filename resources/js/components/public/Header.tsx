@@ -1,6 +1,6 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const navigationItems = [
     { label: 'Accueil', href: '/' },
@@ -12,9 +12,32 @@ const navigationItems = [
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [hasScrolled, setHasScrolled] = useState(false);
+    const { url } = usePage();
+
+    const isHomePage = useMemo(() => url === '/', [url]);
+
+    useEffect(() => {
+        const onScroll = (): void => {
+            setHasScrolled(window.scrollY > 8);
+        };
+
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+        };
+    }, []);
+
+    const shouldShowHeader = !isHomePage || hasScrolled;
 
     return (
-        <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm transition-all duration-500">
+        <header
+            className={`fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm transition-all duration-500 ${
+                shouldShowHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+            }`}
+        >
             <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6 lg:px-8">
                 <Link href="/" className="group flex items-center gap-3">
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#071A3D] text-sm font-bold text-[#F5B400] shadow-sm">
@@ -51,11 +74,7 @@ export default function Header() {
                         className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 text-[#071A3D] transition-colors duration-300 hover:bg-slate-100 md:hidden"
                         aria-label="Ouvrir le menu"
                     >
-                        {isMenuOpen ? (
-                            <X className="h-5 w-5" />
-                        ) : (
-                            <Menu className="h-5 w-5" />
-                        )}
+                        {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     </button>
                 </div>
             </div>
