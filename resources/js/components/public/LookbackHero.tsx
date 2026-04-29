@@ -1,118 +1,348 @@
-import { Link } from '@inertiajs/react';
+import type { CSSProperties } from 'react';
 
-type ArchiveItem = {
-    src: string;
-    alt: string;
-    className: string;
-    fallback: string;
+const photoDimensions = [
+    { width: 110, height: 160, alt: 'Surfer inside a breaking wave' },
+    { width: 120, height: 175, alt: 'Surfer cutting through a wave crest' },
+    { width: 130, height: 150, alt: 'Surfer waiting near the shore' },
+    { width: 115, height: 170, alt: 'Surfer gliding on an open face wave' },
+    { width: 100, height: 185, alt: 'Surfer diving under breaking surf' },
+] as const;
+
+const styles: Record<string, CSSProperties> = {
+    page: {
+        width: '100%',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#E8E6E0',
+    },
+    frame: {
+        width: '1440px',
+        height: '900px',
+        background: '#E8E6E0',
+        color: '#1A1A1A',
+        overflow: 'hidden',
+    },
 };
 
-const archiveItems: ArchiveItem[] = [
-    {
-        src: '/images/jfci-archive-1.jpg',
-        alt: 'Archive JFCI 1',
-        className: 'h-[220px] w-[170px] self-end md:h-[260px] md:w-[200px] lg:h-[300px] lg:w-[220px] md:-mb-8',
-        fallback: 'JFCI 2000',
-    },
-    {
-        src: '/images/jfci-archive-2.jpg',
-        alt: 'Archive JFCI 2',
-        className: 'h-[280px] w-[190px] md:h-[340px] md:w-[240px] lg:h-[380px] lg:w-[260px] md:-mt-6',
-        fallback: 'Congrès 2005',
-    },
-    {
-        src: '/images/jfci-archive-3.jpg',
-        alt: 'Archive JFCI 3',
-        className: 'h-[240px] w-[190px] md:h-[290px] md:w-[230px] lg:h-[320px] lg:w-[250px] md:mt-4',
-        fallback: 'Jeunesse 2010',
-    },
-    {
-        src: '/images/jfci-archive-4.jpg',
-        alt: 'Archive JFCI 4',
-        className: 'h-[300px] w-[200px] md:h-[350px] md:w-[240px] lg:h-[390px] lg:w-[265px] md:-mt-4',
-        fallback: 'Vision 2015',
-    },
-    {
-        src: '/images/jfci-archive-5.jpg',
-        alt: 'Archive JFCI 5',
-        className: 'h-[260px] w-[200px] md:h-[320px] md:w-[250px] lg:h-[360px] lg:w-[290px] md:-mb-6',
-        fallback: 'Élan 2025',
-    },
-];
-
-const timelineYears = ['2000', '2005', '2010', '2015', '2020', '2025'];
+const buttonStyle: CSSProperties = {
+    width: '30px',
+    height: '30px',
+    border: '1.5px solid #1A1A1A',
+    borderRadius: '50%',
+    background: 'transparent',
+    color: '#1A1A1A',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    transition: 'background-color 160ms ease, color 160ms ease',
+};
 
 export default function LookbackHero() {
     return (
-        <section className="relative min-h-screen overflow-hidden bg-[#F8F6F1] text-[#071A3D]">
-            <div className="mx-auto flex min-h-screen w-full max-w-[1500px] flex-col px-4 pb-10 pt-16 md:px-8 md:pb-14 md:pt-20 lg:px-12 lg:pt-24">
-                <div className="text-center">
-                    <p className="text-[12vw] font-black uppercase leading-[0.85] tracking-[-0.05em] text-[#071A3D] md:text-[8rem] lg:text-[10rem]">
-                        JFCI
-                    </p>
-                    <p className="mt-2 text-[9vw] font-black uppercase leading-[0.9] tracking-[-0.04em] md:text-[4.9rem] lg:text-[6.4rem]">
-                        25 Ans d&apos;Histoire
-                    </p>
-                    <p className="mt-1 text-lg font-semibold uppercase tracking-[0.3em] text-[#071A3D]/80 md:text-2xl">(2000–2025)</p>
+        <section style={styles.page}>
+            <div style={styles.frame}>
+                <nav
+                    style={{
+                        height: '40px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        padding: '12px 20px',
+                    }}
+                >
+                    <div
+                        style={{
+                            display: 'flex',
+                            gap: '6px',
+                            alignItems: 'center',
+                            fontFamily: '"IBM Plex Mono", monospace',
+                            fontSize: '11px',
+                        }}
+                    >
+                        <span style={{ color: '#333333' }}>Timeline</span>
+                        <span style={{ color: '#999999' }}>·</span>
+                        <span style={{ color: '#333333' }}>Surf</span>
+                        <span style={{ color: '#999999' }}>·</span>
+                        <span style={{ color: '#333333' }}>Index</span>
+                        <span style={{ color: '#999999' }}>·</span>
+                        <span style={{ color: '#333333' }}>About</span>
+                    </div>
+                    <div
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            fontFamily: '"IBM Plex Mono", monospace',
+                            fontSize: '11px',
+                            color: '#333333',
+                        }}
+                    >
+                        <span
+                            style={{
+                                width: '10px',
+                                height: '10px',
+                                background: '#D42B2B',
+                                borderRadius: '2px',
+                            }}
+                        />
+                        <span>Easy Way Out / Bi</span>
+                    </div>
+                </nav>
+
+                <div style={{ padding: '8px 20px 0', textAlign: 'center' }}>
+                    <h1
+                        style={{
+                            margin: 0,
+                            fontFamily: 'Anton, sans-serif',
+                            fontSize: '64px',
+                            lineHeight: '100%',
+                            letterSpacing: '-0.01em',
+                            color: '#1A1A1A',
+                            textTransform: 'uppercase',
+                        }}
+                    >
+                        Better Off®
+                        <br />
+                        THE LOOKBACK
+                        <br />
+                        (BO®S/2026)
+                    </h1>
                 </div>
 
-                <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:mt-8 md:gap-5 lg:mt-12 lg:flex-nowrap lg:gap-6">
-                    {archiveItems.map((item, index) => (
-                        <article
-                            key={item.src}
-                            className={`${item.className} group relative shrink-0 overflow-hidden rounded-[6px] bg-[#E8E2D7] shadow-[0_12px_24px_rgba(7,26,61,0.08)] transition-all duration-700 ease-out animate-in fade-in slide-in-from-bottom-4`}
-                            style={{ animationDelay: `${index * 120}ms` }}
-                        >
-                            <img
-                                src={item.src}
-                                alt={item.alt}
-                                loading="lazy"
-                                className="h-full w-full object-cover"
-                                onError={(event) => {
-                                    const imageElement = event.currentTarget;
-                                    imageElement.style.display = 'none';
-                                    const fallbackElement = imageElement.nextElementSibling as HTMLDivElement | null;
-
-                                    if (fallbackElement) {
-                                        fallbackElement.classList.remove('hidden');
-                                    }
-                                }}
-                            />
-                            <div className="hidden h-full w-full items-center justify-center bg-gradient-to-br from-[#071A3D] to-[#123C8C] p-4 text-center text-base font-bold uppercase tracking-[0.15em] text-[#F8F6F1]">
-                                {item.fallback}
-                            </div>
-                        </article>
+                <div
+                    style={{
+                        height: '240px',
+                        display: 'flex',
+                        alignItems: 'flex-end',
+                        gap: '8px',
+                        padding: '24px 20px 0',
+                    }}
+                >
+                    {photoDimensions.map((dimension, index) => (
+                        <img
+                            key={dimension.alt}
+                            src={`https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=${dimension.width * 3}&h=${dimension.height * 3}&q=80&crop=entropy&sat=-20&sig=${index + 1}`}
+                            alt={dimension.alt}
+                            style={{
+                                width: `${dimension.width}px`,
+                                height: `${dimension.height}px`,
+                                borderRadius: '4px',
+                                objectFit: 'cover',
+                            }}
+                        />
                     ))}
                 </div>
 
-                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                    <Link
-                        href="/convention-25-ans"
-                        className="inline-flex rounded-full bg-[#F5B400] px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#071A3D] transition hover:brightness-95"
+                <div
+                    style={{
+                        height: '64px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-end',
+                        padding: '16px 20px 4px',
+                    }}
+                >
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '2px',
+                            fontFamily: '"IBM Plex Mono", monospace',
+                        }}
                     >
-                        Convention 25 ans
-                    </Link>
-                    <Link
-                        href="/histoire"
-                        className="inline-flex rounded-full border border-[#071A3D] px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#071A3D] transition hover:bg-[#071A3D] hover:text-[#F8F6F1]"
-                    >
-                        Découvrir l&apos;histoire
-                    </Link>
+                        <span
+                            style={{
+                                fontSize: '10px',
+                                color: '#666666',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em',
+                            }}
+                        >
+                            WEBSITE
+                        </span>
+                        <span
+                            style={{
+                                fontSize: '20px',
+                                fontWeight: 500,
+                                color: '#1A1A1A',
+                            }}
+                        >
+                            The Lookback
+                        </span>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                        <button
+                            type="button"
+                            style={buttonStyle}
+                            onMouseEnter={(event) => {
+                                event.currentTarget.style.background =
+                                    '#1A1A1A';
+                                event.currentTarget.style.color = '#FFFFFF';
+                            }}
+                            onMouseLeave={(event) => {
+                                event.currentTarget.style.background =
+                                    'transparent';
+                                event.currentTarget.style.color = '#1A1A1A';
+                            }}
+                        >
+                            <span
+                                style={{
+                                    fontSize: '13px',
+                                    transform: 'rotate(-45deg)',
+                                }}
+                            >
+                                ↗
+                            </span>
+                        </button>
+                        <button
+                            type="button"
+                            style={buttonStyle}
+                            onMouseEnter={(event) => {
+                                event.currentTarget.style.background =
+                                    '#1A1A1A';
+                                event.currentTarget.style.color = '#FFFFFF';
+                            }}
+                            onMouseLeave={(event) => {
+                                event.currentTarget.style.background =
+                                    'transparent';
+                                event.currentTarget.style.color = '#1A1A1A';
+                            }}
+                        >
+                            <svg
+                                width="12"
+                                height="14"
+                                viewBox="0 0 12 14"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M2 1h8v12l-4-3-4 3V1z"
+                                    stroke="currentColor"
+                                    strokeWidth="1.5"
+                                    fill="none"
+                                />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
-                <div className="mt-auto pt-10">
-                    <div className="relative mx-auto max-w-6xl">
-                        <div className="h-px w-full bg-[#071A3D]/15" />
-                        <div className="mt-3 grid grid-cols-6 gap-2">
-                            {timelineYears.map((year) => (
-                                <div key={year} className="text-center">
-                                    <div className="mx-auto mb-2 h-3 w-px bg-[#071A3D]/25" />
-                                    <p className="text-xs font-semibold tracking-[0.22em] text-[#071A3D]/75 md:text-sm">{year}</p>
-                                </div>
-                            ))}
+                <div
+                    style={{
+                        margin: '16px 20px 0',
+                        height: '28px',
+                        position: 'relative',
+                    }}
+                >
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: 0,
+                            width: '100%',
+                            height: '1px',
+                            transform: 'translateY(-50%)',
+                            background: '#AAAAAA',
+                        }}
+                    />
+
+                    <div
+                        style={{
+                            position: 'absolute',
+                            left: 0,
+                            top: '50%',
+                            transform: 'translateY(-4px)',
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: '1px',
+                                height: '8px',
+                                background: '#666666',
+                            }}
+                        />
+                        <div
+                            style={{
+                                marginTop: '2px',
+                                fontFamily: '"IBM Plex Mono", monospace',
+                                fontSize: '9px',
+                                color: '#666666',
+                            }}
+                        >
+                            MARY
                         </div>
-                        <div className="pointer-events-none absolute left-1/2 top-0 h-6 w-px -translate-x-1/2 bg-[#F5B400]" />
                     </div>
+
+                    <div
+                        style={{
+                            position: 'absolute',
+                            left: '50%',
+                            top: '50%',
+                            transform: 'translate(-50%, -4px)',
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: '1px',
+                                height: '8px',
+                                background: '#666666',
+                                margin: '0 auto',
+                            }}
+                        />
+                        <div
+                            style={{
+                                marginTop: '2px',
+                                fontFamily: '"IBM Plex Mono", monospace',
+                                fontSize: '9px',
+                                color: '#666666',
+                            }}
+                        >
+                            JANUARY
+                        </div>
+                    </div>
+
+                    <div
+                        style={{
+                            position: 'absolute',
+                            right: 0,
+                            top: '50%',
+                            transform: 'translateY(-4px)',
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: '1px',
+                                height: '8px',
+                                background: '#666666',
+                                marginLeft: 'auto',
+                            }}
+                        />
+                        <div
+                            style={{
+                                marginTop: '2px',
+                                fontFamily: '"IBM Plex Mono", monospace',
+                                fontSize: '9px',
+                                color: '#666666',
+                            }}
+                        >
+                            DECEMBER
+                        </div>
+                    </div>
+
+                    <div
+                        style={{
+                            position: 'absolute',
+                            left: '48%',
+                            top: '50%',
+                            transform: 'translateY(-10px)',
+                            width: '1px',
+                            height: '20px',
+                            background: '#1A1A1A',
+                        }}
+                    />
                 </div>
             </div>
         </section>

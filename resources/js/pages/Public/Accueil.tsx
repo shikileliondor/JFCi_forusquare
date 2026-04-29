@@ -21,7 +21,18 @@ export default function Accueil() {
 
     return (
         <>
-            <Head title="Accueil" />
+            <Head title="Accueil">
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossOrigin=""
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&display=swap"
+                    rel="stylesheet"
+                />
+            </Head>
             <Header isVisible={isHeaderVisible} />
             <main>
                 <LookbackHero />
