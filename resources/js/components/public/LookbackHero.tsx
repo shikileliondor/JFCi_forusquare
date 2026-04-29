@@ -1,11 +1,11 @@
 import type { CSSProperties } from 'react';
 
 const photoDimensions = [
-    { width: 110, height: 160, alt: 'Surfer inside a breaking wave' },
-    { width: 120, height: 175, alt: 'Surfer cutting through a wave crest' },
-    { width: 130, height: 150, alt: 'Surfer waiting near the shore' },
-    { width: 115, height: 170, alt: 'Surfer gliding on an open face wave' },
-    { width: 100, height: 185, alt: 'Surfer diving under breaking surf' },
+    { width: 355, height: 515, alt: 'Surfer inside a breaking wave', offsetTop: 28 },
+    { width: 355, height: 545, alt: 'Surfer cutting through a wave crest', offsetTop: 12 },
+    { width: 380, height: 325, alt: 'Surfer waiting near the shore', offsetTop: 92 },
+    { width: 330, height: 515, alt: 'Surfer gliding on an open face wave', offsetTop: 28 },
+    { width: 355, height: 325, alt: 'Surfer diving under breaking surf', offsetTop: 76 },
 ] as const;
 
 const styles: Record<string, CSSProperties> = {
@@ -15,12 +15,12 @@ const styles: Record<string, CSSProperties> = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#E8E6E0',
+        background: '#FFFFFF',
     },
     frame: {
         width: '1440px',
-        height: '900px',
-        background: '#E8E6E0',
+        height: '860px',
+        background: '#FFFFFF',
         color: '#1A1A1A',
         overflow: 'hidden',
     },
@@ -114,11 +114,12 @@ export default function LookbackHero() {
 
                 <div
                     style={{
-                        height: '240px',
+                        height: '360px',
                         display: 'flex',
-                        alignItems: 'flex-end',
-                        gap: '8px',
+                        alignItems: 'flex-start',
+                        gap: '24px',
                         padding: '24px 20px 0',
+                        overflowX: 'auto',
                     }}
                 >
                     {photoDimensions.map((dimension, index) => (
@@ -128,8 +129,10 @@ export default function LookbackHero() {
                             alt={dimension.alt}
                             style={{
                                 width: `${dimension.width}px`,
+                                minWidth: `${dimension.width}px`,
                                 height: `${dimension.height}px`,
-                                borderRadius: '4px',
+                                marginTop: `${dimension.offsetTop}px`,
+                                borderRadius: '0',
                                 objectFit: 'cover',
                             }}
                         />
