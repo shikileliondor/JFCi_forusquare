@@ -100,10 +100,31 @@ export default function LookbackHero() {
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '8px', alignItems: 'start', position: 'relative', zIndex: 3 }}>
-                    {heroCards.map((card) => (
+                    {heroCards.map((card, index) => (
                         <article key={card.label}>
-                            <div style={{ border: '6px solid #fff', boxShadow: '0 9px 30px rgba(0, 0, 0, 0.2)', background: '#ddd' }}>
-                                <img src={card.src} alt={card.alt} style={{ width: '100%', height: 'clamp(240px, 29vw, 430px)', objectFit: 'cover', display: 'block' }} />
+                            <div
+                                style={{
+                                    border: '6px solid #fff',
+                                    boxShadow: '0 9px 30px rgba(0, 0, 0, 0.2)',
+                                    background: '#ddd',
+                                    transform: `skewX(${index % 2 === 0 ? '-6deg' : '-4deg'})`,
+                                    transformOrigin: 'bottom center',
+                                    overflow: 'hidden',
+                                }}
+                            >
+                                <img
+                                    src={card.src}
+                                    alt={card.alt}
+                                    style={{
+                                        width: '120%',
+                                        marginLeft: '-10%',
+                                        height: 'clamp(240px, 29vw, 430px)',
+                                        objectFit: 'cover',
+                                        display: 'block',
+                                        transform: `skewX(${index % 2 === 0 ? '6deg' : '4deg'}) scale(1.04)`,
+                                        transformOrigin: 'center center',
+                                    }}
+                                />
                             </div>
                             <div style={{ marginTop: '8px', textAlign: 'center' }}>
                                 <div style={{ display: 'inline-block', minWidth: '84%', padding: '8px 12px', background: card.accent, color: '#fff', fontWeight: 900, fontSize: 'clamp(15px, 1.5vw, 34px)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{card.label}</div>
