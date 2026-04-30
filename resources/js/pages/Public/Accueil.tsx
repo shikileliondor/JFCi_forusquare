@@ -1,8 +1,9 @@
 import { Head } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import Header from '@/components/public/Header';
-import LookbackHero from '@/components/public/LookbackHero';
 import LeaderSupportSection from '@/components/public/LeaderSupportSection';
+import LookbackHero from '@/components/public/LookbackHero';
+import BackgroundComponents from '@/components/ui/background-components';
 
 export default function Accueil() {
     const [isHeaderVisible, setIsHeaderVisible] = useState(false);
@@ -35,10 +36,12 @@ export default function Accueil() {
                 />
             </Head>
             <Header isVisible={isHeaderVisible} />
-            <main>
-                <LookbackHero />
-                <LeaderSupportSection />
-            </main>
+            <BackgroundComponents>
+                <main>
+                    <LookbackHero />
+                    <LeaderSupportSection />
+                </main>
+            </BackgroundComponents>
         </>
     );
 }
