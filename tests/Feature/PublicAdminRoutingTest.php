@@ -14,7 +14,9 @@ class PublicAdminRoutingTest extends TestCase
 
     public function test_public_home_is_accessible(): void
     {
-        $this->get('/')->assertOk();
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('Are you a Foursquare leader? Find what you need!');
     }
 
     public function test_guest_is_redirected_to_admin_login(): void
