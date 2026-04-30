@@ -150,7 +150,22 @@ export default function LookbackHero() {
                                 />
                             </div>
                             <div style={{ marginTop: '8px', textAlign: 'center' }}>
-                                <div style={{ display: 'inline-block', minWidth: '84%', padding: '8px 12px', background: card.accent, color: '#fff', fontWeight: 900, fontSize: 'clamp(15px, 1.5vw, 34px)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{card.label}</div>
+                                <div
+                                    style={{
+                                        display: 'inline-block',
+                                        minWidth: '78%',
+                                        padding: '6px 10px',
+                                        background: card.accent,
+                                        color: '#fff',
+                                        fontWeight: 900,
+                                        fontSize: 'clamp(12px, 1.15vw, 24px)',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.03em',
+                                        transform: 'skewX(-18deg)',
+                                    }}
+                                >
+                                    <span style={{ display: 'inline-block', transform: 'skewX(18deg)' }}>{card.label}</span>
+                                </div>
                                 <p style={{ margin: '8px 0 0', fontFamily: '"Brush Script MT", "Segoe Script", cursive', color: '#2a2a2a', fontSize: 'clamp(16px, 1.35vw, 30px)' }}>{card.caption}</p>
                             </div>
                         </article>
