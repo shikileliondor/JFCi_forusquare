@@ -18,15 +18,15 @@ export default function Header({ isVisible = true }: { isVisible?: boolean }) {
             className={`fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm transition-all duration-500 ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
         >
             <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6 lg:px-8">
-                <Link href="/" className="group flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#071A3D] text-sm font-bold text-[#F5B400] shadow-sm">
-                        JF
-                    </span>
-                    <span className="font-['Poppins'] text-sm font-semibold text-[#071A3D] md:text-base">
-                        Jeunesse Foursquare Côte d&apos;Ivoire
-                    </span>
-                </Link>
-
+   
+  <Link href="/" className="group">
+  <img
+    src="/images/logo JFci 25 ans_page-0001.jpg"
+    alt="J Côte d'Ivoire logo"
+    className="h-16 w-16 object-contain"
+    style={{ mixBlendMode: 'multiply' }}
+  />
+</Link>
                 <nav className="hidden items-center gap-8 md:flex">
                     {navigationItems.map((item) => (
                         <Link

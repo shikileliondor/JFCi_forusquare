@@ -24,7 +24,7 @@ export default function Footer() {
                             JF
                         </span>
                         <p className="font-['Poppins'] text-sm font-semibold text-white">
-                            Jeunesse Foursquare Côte d&apos;Ivoire
+                            JFCI Côte d&apos;Ivoire
                         </p>
                     </div>
                     <p className="font-['Inter'] text-sm leading-relaxed text-slate-300">
