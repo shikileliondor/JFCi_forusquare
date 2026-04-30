@@ -57,7 +57,7 @@ const styles: Record<string, CSSProperties> = {
         padding: 'clamp(8px, 1.4vw, 26px)',
     },
     frame: {
-        width: 'min(1520px, 96%)',
+        width: 'min(4000px, 150%)',
         borderRadius: '32px',
         background: '#f8f8f8',
         border: '1px solid rgba(0, 0, 0, 0.06)',
