@@ -134,7 +134,7 @@ export default function LookbackHero() {
                             textWrap: 'balance',
                         }}
                     >
-                        Better Off®<br />THE LOOKBACK<br />(BO®S/2026)
+                        JEUNESSE®<br />Foursquare<br />Cote d'ivoire
                     </h1>
                 </div>
 
