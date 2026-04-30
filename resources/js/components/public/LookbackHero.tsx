@@ -74,8 +74,32 @@ export default function LookbackHero() {
     return (
         <section style={styles.page}>
             <div style={styles.frame}>
-                <div aria-hidden="true" style={{ position: 'absolute', left: '22px', top: '270px', width: '320px', height: '820px', background: 'linear-gradient(180deg, #ffbc25 0%, #ff7800 46%, #ef142e 100%)', clipPath: 'polygon(48% 0%, 76% 14%, 69% 40%, 92% 63%, 82% 100%, 48% 78%, 34% 100%, 12% 72%, 18% 42%, 8% 14%)', opacity: 0.96, zIndex: 0 }} />
-                <div aria-hidden="true" style={{ position: 'absolute', right: '14px', bottom: '-112px', width: '150px', height: '480px', background: 'linear-gradient(180deg, #ffb520 0%, #ff6700 45%, #ec1630 100%)', clipPath: 'polygon(48% 0%, 74% 17%, 66% 42%, 88% 62%, 78% 100%, 44% 76%, 30% 100%, 8% 70%, 14% 45%, 8% 17%)', zIndex: 0 }} />
+                <img
+                    aria-hidden="true"
+                    src="/images/flame.png"
+                    alt=""
+                    style={{
+                        position: 'absolute',
+                        left: '-12px',
+                        bottom: '-10px',
+                        width: 'clamp(180px, 18vw, 350px)',
+                        zIndex: 1,
+                        pointerEvents: 'none',
+                    }}
+                />
+                <img
+                    aria-hidden="true"
+                    src="/images/flamme .png"
+                    alt=""
+                    style={{
+                        position: 'absolute',
+                        right: '-18px',
+                        bottom: '-42px',
+                        width: 'clamp(120px, 11vw, 220px)',
+                        zIndex: 1,
+                        pointerEvents: 'none',
+                    }}
+                />
 
                 <nav style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(9px, 0.9vw, 22px)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>
                     <span style={{ color: '#2f2f2f' }}>Foi · Prière · Consécration · Morel</span>
