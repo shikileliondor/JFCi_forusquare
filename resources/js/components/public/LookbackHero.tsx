@@ -83,7 +83,7 @@ export default function LookbackHero() {
                 </nav>
 
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
-                    <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(50px, 9.5vw, 190px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
+                    <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(38px, 7.4vw, 145px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
                         Jeunesse®<br />Foursquare<br />
                         <span style={{ color: '#ff1f37' }}>Cote d&apos;ivoire</span>
                     </h1>
