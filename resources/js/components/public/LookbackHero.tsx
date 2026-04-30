@@ -15,40 +15,40 @@ const heroCards: HeroCard[] = [
         alt: 'Jeune homme adorant avec un micro',
         label: 'ADORER',
         caption: 'Un cœur pour Dieu',
-        accent: '#F91D32',
-        rotate: '-2.4deg',
+        accent: '#F21E34',
+        rotate: '-0.8deg',
     },
     {
         src: '/images/image  (4).jpg',
         alt: 'Jeunes servant avec enthousiasme',
         label: 'SERVIR',
         caption: 'Des mains pour aimer',
-        accent: '#1592EE',
-        rotate: '1.2deg',
+        accent: '#1998ED',
+        rotate: '1.8deg',
     },
     {
         src: '/images/image  (5).jpg',
         alt: 'Jeunesse avec panneau et sourire',
         label: 'ÉQUIPER',
         caption: 'Des vies transformées',
-        accent: '#F4B400',
-        rotate: '-1.1deg',
+        accent: '#F0BD14',
+        rotate: '-1.4deg',
     },
     {
         src: '/images/image 2 .jpg',
         alt: 'Amies connectées lors du rassemblement',
         label: 'CONNECTER',
         caption: 'Une génération unie',
-        accent: '#8A2BE2',
-        rotate: '1.4deg',
+        accent: '#9028D5',
+        rotate: '1.6deg',
     },
     {
         src: '/images/image 7.jpg',
         alt: 'Groupe rayonnant en mission',
         label: 'IMPACTER',
         caption: 'Le monde pour Christ',
-        accent: '#10B85D',
-        rotate: '-1.8deg',
+        accent: '#18B95D',
+        rotate: '-1.6deg',
     },
 ];
 
@@ -59,20 +59,20 @@ const styles: Record<string, CSSProperties> = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(180deg, #ececec 0%, #e2e2e2 100%)',
-        padding: 'clamp(10px, 2vw, 28px)',
+        background: 'linear-gradient(180deg, #ededef 0%, #d8d8da 100%)',
+        padding: 'clamp(8px, 1.4vw, 26px)',
     },
     frame: {
-        width: 'min(1900px, 100%)',
-        backgroundColor: '#f7f7f7',
-        borderRadius: '34px',
-        boxShadow: '0 20px 70px rgba(0, 0, 0, 0.12)',
-        border: '1px solid rgba(20, 20, 20, 0.08)',
-        padding: '22px clamp(18px, 3vw, 34px) 26px',
+        width: 'min(1800px, 100%)',
+        borderRadius: '32px',
+        background: '#f8f8f8',
+        border: '1px solid rgba(0, 0, 0, 0.06)',
+        boxShadow: '0 22px 64px rgba(18, 18, 18, 0.12)',
+        padding: '20px clamp(14px, 2vw, 30px) 30px',
         position: 'relative',
         overflow: 'hidden',
         backgroundImage:
-            'radial-gradient(circle at 18% 20%, rgba(0, 0, 0, 0.05) 0, transparent 34%), radial-gradient(circle at 84% 75%, rgba(0, 0, 0, 0.04) 0, transparent 36%), repeating-linear-gradient(150deg, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0.7) 8px, transparent 8px, transparent 14px)',
+            'radial-gradient(circle at 14% 22%, rgba(188, 188, 188, 0.16), transparent 30%), radial-gradient(circle at 84% 84%, rgba(188, 188, 188, 0.14), transparent 26%), linear-gradient(140deg, rgba(220, 220, 220, 0.15) 8%, transparent 30%), linear-gradient(36deg, rgba(220, 220, 220, 0.15) 8%, transparent 38%)',
     },
 };
 
@@ -80,62 +80,40 @@ export default function LookbackHero() {
     return (
         <section style={styles.page}>
             <div style={styles.frame}>
-                <div
-                    aria-hidden="true"
-                    style={{
-                        position: 'absolute',
-                        left: '-54px',
-                        top: '180px',
-                        width: '280px',
-                        height: '560px',
-                        background: 'linear-gradient(180deg, #ffbf2f 0%, #ff6400 60%, #f10f2b 100%)',
-                        clipPath: 'polygon(50% 0%, 72% 15%, 65% 44%, 89% 63%, 80% 100%, 44% 75%, 30% 100%, 11% 74%, 18% 49%, 7% 21%)',
-                        opacity: 0.9,
-                    }}
-                />
-                <div
-                    aria-hidden="true"
-                    style={{
-                        position: 'absolute',
-                        right: '-18px',
-                        bottom: '-110px',
-                        width: '160px',
-                        height: '390px',
-                        background: 'linear-gradient(180deg, #ffb126 0%, #ff5500 55%, #f1112b 100%)',
-                        clipPath: 'polygon(54% 0%, 70% 17%, 64% 42%, 86% 61%, 77% 100%, 41% 73%, 26% 100%, 8% 70%, 16% 45%, 7% 18%)',
-                    }}
-                />
+                <div aria-hidden="true" style={{ position: 'absolute', left: '22px', top: '270px', width: '320px', height: '820px', background: 'linear-gradient(180deg, #ffbc25 0%, #ff7800 46%, #ef142e 100%)', clipPath: 'polygon(48% 0%, 76% 14%, 69% 40%, 92% 63%, 82% 100%, 48% 78%, 34% 100%, 12% 72%, 18% 42%, 8% 14%)', opacity: 0.96, zIndex: 0 }} />
+                <div aria-hidden="true" style={{ position: 'absolute', right: '14px', bottom: '-112px', width: '150px', height: '480px', background: 'linear-gradient(180deg, #ffb520 0%, #ff6700 45%, #ec1630 100%)', clipPath: 'polygon(48% 0%, 74% 17%, 66% 42%, 88% 62%, 78% 100%, 44% 76%, 30% 100%, 8% 70%, 14% 45%, 8% 17%)', zIndex: 0 }} />
 
-                <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(10px, 1vw, 13px)', marginBottom: '16px' }}>
-                    <span style={{ color: '#363636' }}>Foi · Prière · Consécration · Morel</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#363636' }}><span style={{ width: '11px', height: '11px', borderRadius: '2px', background: '#ef1f33' }} />Easy Way Out / Bi</span>
+                <nav style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(9px, 0.9vw, 22px)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>
+                    <span style={{ color: '#2f2f2f' }}>Foi · Prière · Consécration · Morel</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#2f2f2f' }}><span style={{ width: '11px', height: '11px', borderRadius: '2px', background: '#ef1f33' }} />Easy Way Out / Bi</span>
                 </nav>
 
-                <div style={{ textAlign: 'center' }}>
-                    <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#090909', fontSize: 'clamp(52px, 9vw, 150px)', lineHeight: 0.9, letterSpacing: '-0.025em' }}>
+                <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
+                    <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(50px, 9.5vw, 190px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
                         Jeunesse®<br />Foursquare<br />
-                        <span style={{ color: '#ff2138' }}>Cote d&apos;ivoire</span>
+                        <span style={{ color: '#ff1f37' }}>Cote d&apos;ivoire</span>
                     </h1>
 
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '14px', marginTop: '16px' }}>
-                        <span style={{ width: 'clamp(90px, 16vw, 200px)', height: '2px', background: 'rgba(0, 0, 0, 0.7)' }} />
-                        {['✝', '🕊', '⚱', '♛'].map((icon, index) => (
-                            <span key={`${icon}-${index}`} style={{ width: '34px', height: '34px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: index === 0 ? '#111' : index === 1 ? '#ef1f33' : index === 2 ? '#1592EE' : '#f2b500', color: '#fff', fontSize: '20px' }}>{icon}</span>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '10px', flexWrap: 'wrap' }}>
+                        <span style={{ width: 'clamp(80px, 16vw, 290px)', height: '2px', background: 'rgba(15, 15, 15, 0.65)' }} />
+                        {['✝', '🕊', '♜', '♛'].map((icon, index) => (
+                            <span key={`${icon}-${index}`} style={{ width: 'clamp(26px, 2.2vw, 42px)', height: 'clamp(26px, 2.2vw, 42px)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: index === 0 ? '#0e0e0e' : index === 1 ? '#ef1f33' : index === 2 ? '#1998ED' : '#F0BD14', color: '#fff', fontSize: 'clamp(16px, 1.3vw, 24px)' }}>{icon}</span>
                         ))}
-                        <span style={{ width: 'clamp(90px, 16vw, 200px)', height: '2px', background: 'rgba(0, 0, 0, 0.7)' }} />
+                        <span style={{ width: 'clamp(80px, 16vw, 290px)', height: '2px', background: 'rgba(15, 15, 15, 0.65)' }} />
                     </div>
-                    <p style={{ marginTop: '14px', marginBottom: '18px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(11px, 1.1vw, 21px)', color: '#161616' }}>FOI · UNITÉ · MISSION · IMPACT</p>
+
+                    <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '14px', alignItems: 'end', position: 'relative', zIndex: 2 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '10px', alignItems: 'end', position: 'relative', zIndex: 3 }}>
                     {heroCards.map((card) => (
                         <article key={card.label} style={{ transform: `rotate(${card.rotate})`, transformOrigin: 'bottom center' }}>
-                            <div style={{ border: '7px solid #fff', boxShadow: '0 12px 35px rgba(0, 0, 0, 0.16)', background: '#ddd' }}>
-                                <img src={card.src} alt={card.alt} style={{ width: '100%', aspectRatio: '3 / 4', objectFit: 'cover', display: 'block' }} />
+                            <div style={{ border: '6px solid #fff', boxShadow: '0 9px 30px rgba(0, 0, 0, 0.2)', background: '#ddd' }}>
+                                <img src={card.src} alt={card.alt} style={{ width: '100%', aspectRatio: '3 / 4.1', objectFit: 'cover', display: 'block' }} />
                             </div>
-                            <div style={{ marginTop: '10px', textAlign: 'center' }}>
-                                <div style={{ display: 'inline-block', minWidth: '78%', padding: '9px 12px', background: card.accent, color: '#fff', fontWeight: 800, fontSize: 'clamp(17px, 1.5vw, 34px)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{card.label}</div>
-                                <p style={{ margin: '8px 0 0', fontFamily: '"Brush Script MT", "Segoe Script", cursive', color: '#212121', fontSize: 'clamp(17px, 1.4vw, 31px)' }}>{card.caption}</p>
+                            <div style={{ marginTop: '8px', textAlign: 'center' }}>
+                                <div style={{ display: 'inline-block', minWidth: '84%', padding: '8px 12px', background: card.accent, color: '#fff', fontWeight: 900, fontSize: 'clamp(15px, 1.5vw, 34px)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{card.label}</div>
+                                <p style={{ margin: '8px 0 0', fontFamily: '"Brush Script MT", "Segoe Script", cursive', color: '#2a2a2a', fontSize: 'clamp(16px, 1.35vw, 30px)' }}>{card.caption}</p>
                             </div>
                         </article>
                     ))}
