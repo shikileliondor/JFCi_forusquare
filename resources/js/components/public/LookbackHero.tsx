@@ -1,53 +1,56 @@
 import type { CSSProperties } from 'react';
-import { useState } from 'react';
 
-const photoCards = [
+interface HeroCard {
+    accent: string;
+    alt: string;
+    caption: string;
+    label: string;
+    rotate: string;
+    src: string;
+}
+
+const heroCards: HeroCard[] = [
     {
         src: '/images/image  (1).jpg',
-        alt: 'Moment à la convention',
-        label: 'INSPIRE',
-        month: 'NOVEMBER',
-        title: 'WU-NOPOLY IS OFFICIALLY OUT',
-        description:
-            'Le projet transforme un visuel fort en narration éditoriale. Ici, chaque image devient une porte d’entrée vers une lecture longue, claire et immersive.',
+        alt: 'Jeune homme adorant avec un micro',
+        label: 'ADORER',
+        caption: 'Un cœur pour Dieu',
+        accent: '#F91D32',
+        rotate: '-2.4deg',
     },
     {
         src: '/images/image  (4).jpg',
-        alt: 'Scène de groupe en salle',
-        label: 'FEATURE',
-        month: 'OCTOBER',
-        title: 'COASTAL LINES IN MOTION',
-        description:
-            'Une direction artistique où les rythmes visuels racontent le mouvement. Le but est de donner une sensation de progression au scroll et au clic.',
+        alt: 'Jeunes servant avec enthousiasme',
+        label: 'SERVIR',
+        caption: 'Des mains pour aimer',
+        accent: '#1592EE',
+        rotate: '1.2deg',
     },
     {
         src: '/images/image  (5).jpg',
-        alt: 'Intervenant sur scène',
-        label: 'ARCHIVE',
-        month: 'SEPTEMBER',
-        title: 'FRAME STUDY: OCEAN ENERGY',
-        description:
-            'Un focus sur la composition: masse, contraste et respiration. La mise en page privilégie le contenu éditorial après la sélection de la carte.',
+        alt: 'Jeunesse avec panneau et sourire',
+        label: 'ÉQUIPER',
+        caption: 'Des vies transformées',
+        accent: '#F4B400',
+        rotate: '-1.1deg',
     },
     {
         src: '/images/image 2 .jpg',
-        alt: 'Discussion autour du projet',
-        label: 'JOURNAL',
-        month: 'AUGUST',
-        title: 'SURF CULTURE IN DETAIL',
-        description:
-            'La carte agit comme un teaser. Le panneau “show” à droite permet de prolonger l’attention sans quitter le contexte de la galerie.',
+        alt: 'Amies connectées lors du rassemblement',
+        label: 'CONNECTER',
+        caption: 'Une génération unie',
+        accent: '#8A2BE2',
+        rotate: '1.4deg',
     },
     {
         src: '/images/image 7.jpg',
-        alt: 'Photo d’ambiance convention',
-        label: 'EXTRA',
-        month: 'JULY',
-        title: 'COMMUNITY STORIES',
-        description:
-            'Les nouvelles images viennent de votre dossier public/images et restent interactives sur desktop comme sur mobile.',
+        alt: 'Groupe rayonnant en mission',
+        label: 'IMPACTER',
+        caption: 'Le monde pour Christ',
+        accent: '#10B85D',
+        rotate: '-1.8deg',
     },
-] as const;
+];
 
 const styles: Record<string, CSSProperties> = {
     page: {
@@ -56,80 +59,86 @@ const styles: Record<string, CSSProperties> = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'radial-gradient(circle at 50% 0%, #ffffff 0%, #f6f6f6 42%, #eeeeee 100%)',
-        padding: 'clamp(8px, 2vw, 28px)',
+        background: 'linear-gradient(180deg, #ececec 0%, #e2e2e2 100%)',
+        padding: 'clamp(10px, 2vw, 28px)',
     },
     frame: {
-        width: 'min(1440px, 100%)',
-        minHeight: 'min(860px, calc(100vh - 16px))',
-        background: '#F7F7F7',
-        color: '#1A1A1A',
-        borderRadius: '24px',
-        boxShadow: '0 16px 60px rgba(17, 17, 17, 0.15)',
+        width: 'min(1900px, 100%)',
+        backgroundColor: '#f7f7f7',
+        borderRadius: '34px',
+        boxShadow: '0 20px 70px rgba(0, 0, 0, 0.12)',
+        border: '1px solid rgba(20, 20, 20, 0.08)',
+        padding: '22px clamp(18px, 3vw, 34px) 26px',
+        position: 'relative',
         overflow: 'hidden',
-        border: '1px solid rgba(0, 0, 0, 0.08)',
+        backgroundImage:
+            'radial-gradient(circle at 18% 20%, rgba(0, 0, 0, 0.05) 0, transparent 34%), radial-gradient(circle at 84% 75%, rgba(0, 0, 0, 0.04) 0, transparent 36%), repeating-linear-gradient(150deg, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0.7) 8px, transparent 8px, transparent 14px)',
     },
 };
 
 export default function LookbackHero() {
-    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
     return (
         <section style={styles.page}>
-            <style>{`@keyframes cardReveal{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}`}</style>
             <div style={styles.frame}>
-                <nav style={{ minHeight: '40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px clamp(12px, 3vw, 22px)', gap: '8px', flexWrap: 'wrap' }}>
-                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(10px, 1.8vw, 11px)', flexWrap: 'wrap' }}>
-                        <span style={{ color: '#333333' }}>Foi</span><span style={{ color: '#999999' }}>·</span><span style={{ color: '#333333' }}>Prière</span><span style={{ color: '#999999' }}>·</span><span style={{ color: '#333333' }}>Consécration</span><span style={{ color: '#999999' }}>·</span><span style={{ color: '#333333' }}>Morel</span>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', color: '#333333' }}>
-                        <span style={{ width: '10px', height: '10px', background: '#D42B2B', borderRadius: '2px' }} />
-                        <span>Easy Way Out / Bi</span>
-                    </div>
+                <div
+                    aria-hidden="true"
+                    style={{
+                        position: 'absolute',
+                        left: '-54px',
+                        top: '180px',
+                        width: '280px',
+                        height: '560px',
+                        background: 'linear-gradient(180deg, #ffbf2f 0%, #ff6400 60%, #f10f2b 100%)',
+                        clipPath: 'polygon(50% 0%, 72% 15%, 65% 44%, 89% 63%, 80% 100%, 44% 75%, 30% 100%, 11% 74%, 18% 49%, 7% 21%)',
+                        opacity: 0.9,
+                    }}
+                />
+                <div
+                    aria-hidden="true"
+                    style={{
+                        position: 'absolute',
+                        right: '-18px',
+                        bottom: '-110px',
+                        width: '160px',
+                        height: '390px',
+                        background: 'linear-gradient(180deg, #ffb126 0%, #ff5500 55%, #f1112b 100%)',
+                        clipPath: 'polygon(54% 0%, 70% 17%, 64% 42%, 86% 61%, 77% 100%, 41% 73%, 26% 100%, 8% 70%, 16% 45%, 7% 18%)',
+                    }}
+                />
+
+                <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(10px, 1vw, 13px)', marginBottom: '16px' }}>
+                    <span style={{ color: '#363636' }}>Foi · Prière · Consécration · Morel</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#363636' }}><span style={{ width: '11px', height: '11px', borderRadius: '2px', background: '#ef1f33' }} />Easy Way Out / Bi</span>
                 </nav>
 
-                <div style={{ padding: '8px clamp(12px, 3vw, 22px) 0', textAlign: 'center' }}>
-                    <h1 style={{ margin: 0, fontFamily: 'Anton, sans-serif', fontSize: 'clamp(36px, 8vw, 66px)', lineHeight: '95%', letterSpacing: '-0.01em', color: '#111111', textTransform: 'uppercase', textWrap: 'balance' }}>
-                        JEUNESSE®<br />Foursquare<br />Cote d'ivoire
+                <div style={{ textAlign: 'center' }}>
+                    <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#090909', fontSize: 'clamp(52px, 9vw, 150px)', lineHeight: 0.9, letterSpacing: '-0.025em' }}>
+                        Jeunesse®<br />Foursquare<br />
+                        <span style={{ color: '#ff2138' }}>Cote d&apos;ivoire</span>
                     </h1>
+
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '14px', marginTop: '16px' }}>
+                        <span style={{ width: 'clamp(90px, 16vw, 200px)', height: '2px', background: 'rgba(0, 0, 0, 0.7)' }} />
+                        {['✝', '🕊', '⚱', '♛'].map((icon, index) => (
+                            <span key={`${icon}-${index}`} style={{ width: '34px', height: '34px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: index === 0 ? '#111' : index === 1 ? '#ef1f33' : index === 2 ? '#1592EE' : '#f2b500', color: '#fff', fontSize: '20px' }}>{icon}</span>
+                        ))}
+                        <span style={{ width: 'clamp(90px, 16vw, 200px)', height: '2px', background: 'rgba(0, 0, 0, 0.7)' }} />
+                    </div>
+                    <p style={{ marginTop: '14px', marginBottom: '18px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(11px, 1.1vw, 21px)', color: '#161616' }}>FOI · UNITÉ · MISSION · IMPACT</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: selectedIndex === null ? '1fr' : 'minmax(0, 1fr) minmax(320px, 40%)', gap: '0', alignItems: 'stretch' }}>
-                    <div style={{ minHeight: 'clamp(320px, 48vw, 540px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 'clamp(10px, 1.8vw, 20px)', padding: '16px clamp(12px, 3vw, 22px) 24px', alignItems: 'start' }}>
-                        {photoCards.map((card, index) => (
-                            <button
-                                key={card.src}
-                                type="button"
-                                onClick={() => setSelectedIndex(index)}
-                                style={{
-                                    border: selectedIndex === index ? '2px solid #111111' : '1px solid rgba(0, 0, 0, 0.08)',
-                                    padding: 0,
-                                    background: '#F1F1F1',
-                                    cursor: 'pointer',
-                                    boxShadow: '0 12px 30px rgba(0, 0, 0, 0.14)',
-                                    transform: selectedIndex === index ? 'translateY(-8px) scale(1.01)' : 'translateY(0) scale(1)',
-                                    transition: 'transform 260ms ease, box-shadow 260ms ease, border 220ms ease',
-                                    animation: `cardReveal 480ms ease ${index * 80}ms both`,
-                                }}
-                            >
-                                <img src={card.src} alt={card.alt} style={{ width: '100%', aspectRatio: '3 / 4', objectFit: 'cover', display: 'block', transition: 'transform 400ms ease, filter 320ms ease', filter: selectedIndex === index ? 'saturate(1.05)' : 'saturate(0.92)' }} />
-                            </button>
-                        ))}
-                    </div>
-
-                    {selectedIndex !== null ? (
-                        <aside style={{ padding: '18px clamp(18px, 2vw, 30px)', background: '#F7F7F7', borderLeft: '1px solid rgba(0, 0, 0, 0.15)' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                                <button type="button" onClick={() => setSelectedIndex(null)} style={{ border: 'none', background: 'transparent', fontSize: '16px', fontWeight: 600, cursor: 'pointer' }}>
-                                    Close
-                                </button>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '14px', alignItems: 'end', position: 'relative', zIndex: 2 }}>
+                    {heroCards.map((card) => (
+                        <article key={card.label} style={{ transform: `rotate(${card.rotate})`, transformOrigin: 'bottom center' }}>
+                            <div style={{ border: '7px solid #fff', boxShadow: '0 12px 35px rgba(0, 0, 0, 0.16)', background: '#ddd' }}>
+                                <img src={card.src} alt={card.alt} style={{ width: '100%', aspectRatio: '3 / 4', objectFit: 'cover', display: 'block' }} />
                             </div>
-                            <span style={{ display: 'inline-block', background: '#E9E2F7', color: '#7D58C2', padding: '6px 12px', fontFamily: '"IBM Plex Mono", monospace', fontSize: '14px', fontWeight: 600, marginBottom: '14px' }}>{photoCards[selectedIndex].label}</span>
-                            <p style={{ marginTop: 0, marginBottom: '12px', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700, letterSpacing: '0.02em' }}>({photoCards[selectedIndex].month})</p>
-                            <h2 style={{ marginTop: 0, marginBottom: '18px', fontSize: 'clamp(30px, 3.5vw, 58px)', lineHeight: '95%', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>{photoCards[selectedIndex].title}</h2>
-                            <p style={{ margin: 0, fontSize: 'clamp(16px, 1.4vw, 20px)', lineHeight: 1.5, maxWidth: '46ch' }}>{photoCards[selectedIndex].description}</p>
-                        </aside>
-                    ) : null}
+                            <div style={{ marginTop: '10px', textAlign: 'center' }}>
+                                <div style={{ display: 'inline-block', minWidth: '78%', padding: '9px 12px', background: card.accent, color: '#fff', fontWeight: 800, fontSize: 'clamp(17px, 1.5vw, 34px)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{card.label}</div>
+                                <p style={{ margin: '8px 0 0', fontFamily: '"Brush Script MT", "Segoe Script", cursive', color: '#212121', fontSize: 'clamp(17px, 1.4vw, 31px)' }}>{card.caption}</p>
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>
