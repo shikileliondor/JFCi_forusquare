@@ -76,86 +76,26 @@ export default function LookbackHero() {
 
     return (
         <section style={styles.page}>
+            <style>{`@keyframes cardReveal{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}`}</style>
             <div style={styles.frame}>
-                <nav
-                    style={{
-                        minHeight: '40px',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        padding: '12px clamp(12px, 3vw, 22px)',
-                        gap: '8px',
-                        flexWrap: 'wrap',
-                    }}
-                >
-                    <div
-                        style={{
-                            display: 'flex',
-                            gap: '6px',
-                            alignItems: 'center',
-                            fontFamily: '"IBM Plex Mono", monospace',
-                            fontSize: 'clamp(10px, 1.8vw, 11px)',
-                            flexWrap: 'wrap',
-                        }}
-                    >
-                        <span style={{ color: '#333333' }}>Foi</span>
-                        <span style={{ color: '#999999' }}>·</span>
-                        <span style={{ color: '#333333' }}>Prière</span>
-                        <span style={{ color: '#999999' }}>·</span>
-                        <span style={{ color: '#333333' }}>Consécration</span>
-                        <span style={{ color: '#999999' }}>·</span>
-                        <span style={{ color: '#333333' }}>Morel</span>
+                <nav style={{ minHeight: '40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px clamp(12px, 3vw, 22px)', gap: '8px', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(10px, 1.8vw, 11px)', flexWrap: 'wrap' }}>
+                        <span style={{ color: '#333333' }}>Foi</span><span style={{ color: '#999999' }}>·</span><span style={{ color: '#333333' }}>Prière</span><span style={{ color: '#999999' }}>·</span><span style={{ color: '#333333' }}>Consécration</span><span style={{ color: '#999999' }}>·</span><span style={{ color: '#333333' }}>Morel</span>
                     </div>
-                    <div
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            fontFamily: '"IBM Plex Mono", monospace',
-                            fontSize: '11px',
-                            color: '#333333',
-                        }}
-                    >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', color: '#333333' }}>
                         <span style={{ width: '10px', height: '10px', background: '#D42B2B', borderRadius: '2px' }} />
                         <span>Easy Way Out / Bi</span>
                     </div>
                 </nav>
 
                 <div style={{ padding: '8px clamp(12px, 3vw, 22px) 0', textAlign: 'center' }}>
-                    <h1
-                        style={{
-                            margin: 0,
-                            fontFamily: 'Anton, sans-serif',
-                            fontSize: 'clamp(36px, 8vw, 66px)',
-                            lineHeight: '95%',
-                            letterSpacing: '-0.01em',
-                            color: '#111111',
-                            textTransform: 'uppercase',
-                            textWrap: 'balance',
-                        }}
-                    >
+                    <h1 style={{ margin: 0, fontFamily: 'Anton, sans-serif', fontSize: 'clamp(36px, 8vw, 66px)', lineHeight: '95%', letterSpacing: '-0.01em', color: '#111111', textTransform: 'uppercase', textWrap: 'balance' }}>
                         JEUNESSE®<br />Foursquare<br />Cote d'ivoire
                     </h1>
                 </div>
 
-                <div
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: selectedIndex === null ? '1fr' : 'minmax(0, 1fr) minmax(320px, 40%)',
-                        gap: '0',
-                        alignItems: 'stretch',
-                    }}
-                >
-                    <div
-                        style={{
-                            minHeight: 'clamp(320px, 48vw, 540px)',
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-                            gap: 'clamp(10px, 1.8vw, 20px)',
-                            padding: '16px clamp(12px, 3vw, 22px) 24px',
-                            alignItems: 'start',
-                        }}
-                    >
+                <div style={{ display: 'grid', gridTemplateColumns: selectedIndex === null ? '1fr' : 'minmax(0, 1fr) minmax(320px, 40%)', gap: '0', alignItems: 'stretch' }}>
+                    <div style={{ minHeight: 'clamp(320px, 48vw, 540px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 'clamp(10px, 1.8vw, 20px)', padding: '16px clamp(12px, 3vw, 22px) 24px', alignItems: 'start' }}>
                         {photoCards.map((card, index) => (
                             <button
                                 key={card.src}
@@ -167,20 +107,12 @@ export default function LookbackHero() {
                                     background: '#F1F1F1',
                                     cursor: 'pointer',
                                     boxShadow: '0 12px 30px rgba(0, 0, 0, 0.14)',
-                                    transform: selectedIndex === index ? 'translateY(-4px)' : 'translateY(0)',
-                                    transition: 'transform 220ms ease, box-shadow 220ms ease, border 220ms ease',
+                                    transform: selectedIndex === index ? 'translateY(-8px) scale(1.01)' : 'translateY(0) scale(1)',
+                                    transition: 'transform 260ms ease, box-shadow 260ms ease, border 220ms ease',
+                                    animation: `cardReveal 480ms ease ${index * 80}ms both`,
                                 }}
                             >
-                                <img
-                                    src={card.src}
-                                    alt={card.alt}
-                                    style={{
-                                        width: '100%',
-                                        aspectRatio: '3 / 4',
-                                        objectFit: 'cover',
-                                        display: 'block',
-                                    }}
-                                />
+                                <img src={card.src} alt={card.alt} style={{ width: '100%', aspectRatio: '3 / 4', objectFit: 'cover', display: 'block', transition: 'transform 400ms ease, filter 320ms ease', filter: selectedIndex === index ? 'saturate(1.05)' : 'saturate(0.92)' }} />
                             </button>
                         ))}
                     </div>
@@ -188,37 +120,14 @@ export default function LookbackHero() {
                     {selectedIndex !== null ? (
                         <aside style={{ padding: '18px clamp(18px, 2vw, 30px)', background: '#F7F7F7', borderLeft: '1px solid rgba(0, 0, 0, 0.15)' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                                <button
-                                    type="button"
-                                    onClick={() => setSelectedIndex(null)}
-                                    style={{ border: 'none', background: 'transparent', fontSize: '16px', fontWeight: 600, cursor: 'pointer' }}
-                                >
+                                <button type="button" onClick={() => setSelectedIndex(null)} style={{ border: 'none', background: 'transparent', fontSize: '16px', fontWeight: 600, cursor: 'pointer' }}>
                                     Close
                                 </button>
                             </div>
-                            <span
-                                style={{
-                                    display: 'inline-block',
-                                    background: '#E9E2F7',
-                                    color: '#7D58C2',
-                                    padding: '6px 12px',
-                                    fontFamily: '"IBM Plex Mono", monospace',
-                                    fontSize: '14px',
-                                    fontWeight: 600,
-                                    marginBottom: '14px',
-                                }}
-                            >
-                                {photoCards[selectedIndex].label}
-                            </span>
-                            <p style={{ marginTop: 0, marginBottom: '12px', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700, letterSpacing: '0.02em' }}>
-                                ({photoCards[selectedIndex].month})
-                            </p>
-                            <h2 style={{ marginTop: 0, marginBottom: '18px', fontSize: 'clamp(30px, 3.5vw, 58px)', lineHeight: '95%', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-                                {photoCards[selectedIndex].title}
-                            </h2>
-                            <p style={{ margin: 0, fontSize: 'clamp(16px, 1.4vw, 20px)', lineHeight: 1.5, maxWidth: '46ch' }}>
-                                {photoCards[selectedIndex].description}
-                            </p>
+                            <span style={{ display: 'inline-block', background: '#E9E2F7', color: '#7D58C2', padding: '6px 12px', fontFamily: '"IBM Plex Mono", monospace', fontSize: '14px', fontWeight: 600, marginBottom: '14px' }}>{photoCards[selectedIndex].label}</span>
+                            <p style={{ marginTop: 0, marginBottom: '12px', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700, letterSpacing: '0.02em' }}>({photoCards[selectedIndex].month})</p>
+                            <h2 style={{ marginTop: 0, marginBottom: '18px', fontSize: 'clamp(30px, 3.5vw, 58px)', lineHeight: '95%', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>{photoCards[selectedIndex].title}</h2>
+                            <p style={{ margin: 0, fontSize: 'clamp(16px, 1.4vw, 20px)', lineHeight: 1.5, maxWidth: '46ch' }}>{photoCards[selectedIndex].description}</p>
                         </aside>
                     ) : null}
                 </div>

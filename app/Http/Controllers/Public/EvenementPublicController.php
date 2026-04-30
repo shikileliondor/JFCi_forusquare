@@ -21,10 +21,4 @@ class EvenementPublicController extends Controller
         ]);
     }
 
-    public function show(Evenement $evenement): Response
-    {
-        return Inertia::render('Public/Evenements/Show', [
-            'evenement' => $evenement,
-        ]);
-    }
 }

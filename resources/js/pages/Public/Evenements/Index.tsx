@@ -9,7 +9,7 @@ export default function Index({ evenements }: { evenements: Array<{ id: number; 
                 <ul className="space-y-2">
                     {evenements.map((evenement) => (
                         <li key={evenement.id}>
-                            <Link className="underline" href={`/evenements/${evenement.slug}`}>{evenement.titre}</Link>
+                            <Link className="underline" href={`/evenements/${evenement.slug}/inscription`}>{evenement.titre}</Link>
                         </li>
                     ))}
                 </ul>
