@@ -5,7 +5,6 @@ interface HeroCard {
     alt: string;
     caption: string;
     label: string;
-    rotate: string;
     src: string;
 }
 
@@ -16,7 +15,6 @@ const heroCards: HeroCard[] = [
         label: 'ADORER',
         caption: 'Un cœur pour Dieu',
         accent: '#F21E34',
-        rotate: '-0.8deg',
     },
     {
         src: '/images/image  (4).jpg',
@@ -24,7 +22,6 @@ const heroCards: HeroCard[] = [
         label: 'SERVIR',
         caption: 'Des mains pour aimer',
         accent: '#1998ED',
-        rotate: '1.8deg',
     },
     {
         src: '/images/image  (5).jpg',
@@ -32,7 +29,6 @@ const heroCards: HeroCard[] = [
         label: 'ÉQUIPER',
         caption: 'Des vies transformées',
         accent: '#F0BD14',
-        rotate: '-1.4deg',
     },
     {
         src: '/images/image 2 .jpg',
@@ -40,7 +36,6 @@ const heroCards: HeroCard[] = [
         label: 'CONNECTER',
         caption: 'Une génération unie',
         accent: '#9028D5',
-        rotate: '1.6deg',
     },
     {
         src: '/images/image 7.jpg',
@@ -48,7 +43,6 @@ const heroCards: HeroCard[] = [
         label: 'IMPACTER',
         caption: 'Le monde pour Christ',
         accent: '#18B95D',
-        rotate: '-1.6deg',
     },
 ];
 
@@ -105,11 +99,11 @@ export default function LookbackHero() {
                     <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '10px', alignItems: 'end', position: 'relative', zIndex: 3 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '8px', alignItems: 'start', position: 'relative', zIndex: 3 }}>
                     {heroCards.map((card) => (
-                        <article key={card.label} style={{ transform: `rotate(${card.rotate})`, transformOrigin: 'bottom center' }}>
+                        <article key={card.label}>
                             <div style={{ border: '6px solid #fff', boxShadow: '0 9px 30px rgba(0, 0, 0, 0.2)', background: '#ddd' }}>
-                                <img src={card.src} alt={card.alt} style={{ width: '100%', aspectRatio: '3 / 4.1', objectFit: 'cover', display: 'block' }} />
+                                <img src={card.src} alt={card.alt} style={{ width: '100%', height: 'clamp(240px, 29vw, 430px)', objectFit: 'cover', display: 'block' }} />
                             </div>
                             <div style={{ marginTop: '8px', textAlign: 'center' }}>
                                 <div style={{ display: 'inline-block', minWidth: '84%', padding: '8px 12px', background: card.accent, color: '#fff', fontWeight: 900, fontSize: 'clamp(15px, 1.5vw, 34px)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{card.label}</div>
