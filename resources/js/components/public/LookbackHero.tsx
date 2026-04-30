@@ -57,7 +57,7 @@ const styles: Record<string, CSSProperties> = {
         padding: 'clamp(8px, 1.4vw, 26px)',
     },
     frame: {
-        width: 'min(1800px, 100%)',
+        width: 'min(1520px, 96%)',
         borderRadius: '32px',
         background: '#f8f8f8',
         border: '1px solid rgba(0, 0, 0, 0.06)',
@@ -83,7 +83,7 @@ export default function LookbackHero() {
                 </nav>
 
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
-                   <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(26px, 5vw, 96px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
+                   <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(24px, 4.2vw, 78px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
     Jeunesse®<br />Foursquare<br />
     <span style={{ color: '#ff1f37' }}>Cote d&apos;ivoire</span>
 </h1>
@@ -99,11 +99,33 @@ export default function LookbackHero() {
                     <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '8px', alignItems: 'start', position: 'relative', zIndex: 3 }}>
-                    {heroCards.map((card) => (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '2px', alignItems: 'start', position: 'relative', zIndex: 3 }}>
+                    {heroCards.map((card, index) => (
                         <article key={card.label}>
-                            <div style={{ border: '6px solid #fff', boxShadow: '0 9px 30px rgba(0, 0, 0, 0.2)', background: '#ddd' }}>
-                                <img src={card.src} alt={card.alt} style={{ width: '100%', height: 'clamp(240px, 29vw, 430px)', objectFit: 'cover', display: 'block' }} />
+                            <div
+                                style={{
+                                    border: '8px solid #fff',
+                                    boxShadow: '0 9px 30px rgba(0, 0, 0, 0.2)',
+                                    background: '#ddd',
+                                    transform: `skewX(${index % 2 === 0 ? '-6deg' : '-4deg'})`,
+                                    transformOrigin: 'bottom center',
+                                    overflow: 'hidden',
+                                    boxSizing: 'border-box',
+                                }}
+                            >
+                                <img
+                                    src={card.src}
+                                    alt={card.alt}
+                                    style={{
+                                        width: '120%',
+                                        marginLeft: '-10%',
+                                        height: 'clamp(200px, 24vw, 350px)',
+                                        objectFit: 'cover',
+                                        display: 'block',
+                                        transform: `skewX(${index % 2 === 0 ? '6deg' : '4deg'}) scale(1.04)`,
+                                        transformOrigin: 'center center',
+                                    }}
+                                />
                             </div>
                             <div style={{ marginTop: '8px', textAlign: 'center' }}>
                                 <div style={{ display: 'inline-block', minWidth: '84%', padding: '8px 12px', background: card.accent, color: '#fff', fontWeight: 900, fontSize: 'clamp(15px, 1.5vw, 34px)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{card.label}</div>
