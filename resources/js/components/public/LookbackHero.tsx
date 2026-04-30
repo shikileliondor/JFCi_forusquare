@@ -123,31 +123,29 @@ export default function LookbackHero() {
                     <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '2px', alignItems: 'start', position: 'relative', zIndex: 3 }}>
-                    {heroCards.map((card, index) => (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '10px', alignItems: 'stretch', position: 'relative', zIndex: 3 }}>
+                    {heroCards.map((card) => (
                         <article key={card.label}>
                             <div
                                 style={{
-                                    border: '8px solid #fff',
-                                    boxShadow: '0 9px 30px rgba(0, 0, 0, 0.2)',
+                                    border: 'none',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 9px 30px rgba(0, 0, 0, 0.18)',
                                     background: '#ddd',
-                                    transform: `skewX(${index % 2 === 0 ? '-6deg' : '-4deg'})`,
-                                    transformOrigin: 'bottom center',
                                     overflow: 'hidden',
                                     boxSizing: 'border-box',
+                                    width: '100%',
                                 }}
                             >
                                 <img
                                     src={card.src}
                                     alt={card.alt}
                                     style={{
-                                        width: '120%',
-                                        marginLeft: '-10%',
-                                        height: 'clamp(200px, 24vw, 350px)',
+                                        width: '100%',
+                                        height: 'clamp(220px, 24vw, 350px)',
                                         objectFit: 'cover',
+                                        objectPosition: 'center',
                                         display: 'block',
-                                        transform: `skewX(${index % 2 === 0 ? '6deg' : '4deg'}) scale(1.04)`,
-                                        transformOrigin: 'center center',
                                     }}
                                 />
                             </div>
