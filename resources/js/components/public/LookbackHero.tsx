@@ -30,7 +30,7 @@ const photoCards = [
             'Un focus sur la composition: masse, contraste et respiration. La mise en page privilégie le contenu éditorial après la sélection de la carte.',
     },
     {
-        src: '/images/imge14.jpg',
+        src: '/images/image 2 .jpg',
         alt: 'Discussion autour du projet',
         label: 'JOURNAL',
         month: 'AUGUST',
@@ -39,7 +39,7 @@ const photoCards = [
             'La carte agit comme un teaser. Le panneau “show” à droite permet de prolonger l’attention sans quitter le contexte de la galerie.',
     },
     {
-        src: '/images/convention.jpg',
+        src: '/images/image 7.jpg',
         alt: 'Photo d’ambiance convention',
         label: 'EXTRA',
         month: 'JULY',
@@ -98,13 +98,13 @@ export default function LookbackHero() {
                             flexWrap: 'wrap',
                         }}
                     >
-                        <span style={{ color: '#333333' }}>Timeline</span>
+                        <span style={{ color: '#333333' }}>Foi</span>
                         <span style={{ color: '#999999' }}>·</span>
-                        <span style={{ color: '#333333' }}>Surf</span>
+                        <span style={{ color: '#333333' }}>Prière</span>
                         <span style={{ color: '#999999' }}>·</span>
-                        <span style={{ color: '#333333' }}>Index</span>
+                        <span style={{ color: '#333333' }}>Consécration</span>
                         <span style={{ color: '#999999' }}>·</span>
-                        <span style={{ color: '#333333' }}>About</span>
+                        <span style={{ color: '#333333' }}>Morel</span>
                     </div>
                     <div
                         style={{
