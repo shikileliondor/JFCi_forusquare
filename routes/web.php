@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AccueilController::class, 'index'])->name('public.accueil');
 Route::inertia('/a-propos', 'Public/APropos')->name('public.a-propos');
 Route::get('/evenements', [EvenementPublicController::class, 'index'])->name('public.evenements.index');
-Route::get('/evenements/{evenement:slug}', [EvenementPublicController::class, 'show'])->name('public.evenements.show');
 Route::get('/evenements/{evenement:slug}/inscription', [InscriptionEvenementPublicController::class, 'create'])->name('public.evenements.inscription.create');
 Route::post('/evenements/{evenement:slug}/inscription', [InscriptionEvenementPublicController::class, 'store'])->name('public.evenements.inscription.store');
 Route::inertia('/contact', 'Public/Contact')->name('public.contact');

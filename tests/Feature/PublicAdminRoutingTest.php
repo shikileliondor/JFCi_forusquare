@@ -22,6 +22,18 @@ class PublicAdminRoutingTest extends TestCase
         $this->get('/admin/dashboard')->assertRedirect('/admin/login');
     }
 
+
+    public function test_public_event_show_route_is_not_accessible(): void
+    {
+        $evenement = Evenement::query()->create([
+            'titre' => 'Camp',
+            'slug' => 'camp',
+            'statut' => 'publie',
+        ]);
+
+        $this->get("/evenements/{$evenement->slug}")->assertNotFound();
+    }
+
     public function test_public_event_registration_creates_unpaid_record(): void
     {
         $evenement = Evenement::query()->create([
