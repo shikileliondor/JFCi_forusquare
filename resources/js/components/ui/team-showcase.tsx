@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { Instagram, Linkedin, Palette, Twitter } from 'lucide-react';
-
 import { cn } from '@/lib/utils';
 
 export interface TeamMember {
@@ -110,10 +108,22 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
                 </div>
             </div>
 
-            <div className="flex w-full flex-1 flex-col gap-4 pt-0 sm:grid sm:grid-cols-2 md:flex md:flex-col md:gap-5 md:pt-2">
-                {members.map((member) => (
-                    <MemberRow key={member.id} member={member} hoveredId={hoveredId} onHover={setHoveredId} />
-                ))}
+            <div className="w-full flex-1 md:max-w-[420px]">
+                <div className="relative overflow-hidden rounded-[1.75rem] shadow-[0_30px_55px_-28px_rgba(0,0,0,0.45)]">
+                    <img
+                        src="/images/president.jpg"
+                        alt="Portrait officiel du président de la JFCI"
+                        className="h-[340px] w-full object-cover object-center sm:h-[460px] md:h-[560px]"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#2a0038]/95 via-[#4f0d68]/70 to-transparent px-6 pb-6 pt-16 text-white">
+                        <p className="text-[2rem] font-semibold leading-tight sm:text-[2.2rem]">
+                            M. Jean-Claude Kassi BROU
+                        </p>
+                        <p className="mt-2 text-sm uppercase tracking-[0.18em] text-white/90">
+                            Président de la JFCI
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -155,75 +165,3 @@ function PhotoCard({
     );
 }
 
-function MemberRow({
-    member,
-    hoveredId,
-    onHover,
-}: {
-    member: TeamMember;
-    hoveredId: string | null;
-    onHover: (id: string | null) => void;
-}) {
-    const isActive = hoveredId === member.id;
-    const isDimmed = hoveredId !== null && !isActive;
-    const hasSocial =
-        member.social?.twitter ?? member.social?.linkedin ?? member.social?.instagram ?? member.social?.behance;
-
-    return (
-        <div
-            className={cn('cursor-pointer transition-opacity duration-300', isDimmed ? 'opacity-50' : 'opacity-100')}
-            onMouseEnter={() => onHover(member.id)}
-            onMouseLeave={() => onHover(null)}
-        >
-            <div className="flex items-center gap-2.5">
-                <span
-                    className={cn(
-                        'h-3 w-4 flex-shrink-0 rounded-[5px] transition-all duration-300',
-                        isActive ? 'w-5 bg-foreground' : 'bg-foreground/25',
-                    )}
-                />
-                <span
-                    className={cn(
-                        'text-base font-semibold leading-none tracking-tight transition-colors duration-300 md:text-[18px]',
-                        isActive ? 'text-foreground' : 'text-foreground/80',
-                    )}
-                >
-                    {member.name}
-                </span>
-
-                {hasSocial && (
-                    <div
-                        className={cn(
-                            'ml-0.5 flex items-center gap-1.5 transition-all duration-200',
-                            isActive ? 'translate-x-0 opacity-100' : '-translate-x-2 pointer-events-none opacity-0',
-                        )}
-                    >
-                        {member.social?.twitter && <SocialIcon href={member.social.twitter} title="X / Twitter" icon={<Twitter size={12} />} />}
-                        {member.social?.linkedin && <SocialIcon href={member.social.linkedin} title="LinkedIn" icon={<Linkedin size={12} />} />}
-                        {member.social?.instagram && <SocialIcon href={member.social.instagram} title="Instagram" icon={<Instagram size={12} />} />}
-                        {member.social?.behance && <SocialIcon href={member.social.behance} title="Behance" icon={<Palette size={12} />} />}
-                    </div>
-                )}
-            </div>
-
-            <p className="mt-1.5 pl-[27px] text-[7px] font-medium uppercase tracking-[0.2em] text-muted-foreground md:text-[10px]">
-                {member.role}
-            </p>
-        </div>
-    );
-}
-
-function SocialIcon({ href, title, icon }: { href: string; title: string; icon: React.ReactNode }) {
-    return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="rounded p-1 text-muted-foreground transition-all duration-150 hover:scale-110 hover:bg-foreground/10 hover:text-foreground"
-            title={title}
-        >
-            {icon}
-        </a>
-    );
-}
