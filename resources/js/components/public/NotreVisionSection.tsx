@@ -1,5 +1,7 @@
 import { ArrowRight, BadgeCheck } from 'lucide-react';
 
+import { Hero } from '@/components/ui/hero-with-group-of-images-text-and-two-buttons';
+
 interface VisionPoint {
     title: string;
     description: string;
@@ -96,6 +98,9 @@ export default function NotreVisionSection() {
                         </a>
                     </div>
                 </div>
+            </div>
+            <div className="mt-8 border-t border-[#dad3c6] pt-8">
+                <Hero />
             </div>
         </section>
     );
