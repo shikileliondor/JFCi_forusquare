@@ -74,9 +74,9 @@ export default function LookbackHero() {
     return (
         <section style={styles.page}>
             <div style={styles.frame}>
-                <img
+                {/* <img
                     aria-hidden="true"
-                    src="/images/flame.png"
+                    src="/images/flam.png"
                     alt=""
                     style={{
                         position: 'absolute',
@@ -99,7 +99,7 @@ export default function LookbackHero() {
                         zIndex: 1,
                         pointerEvents: 'none',
                     }}
-                />
+                /> */}
 
                 <nav style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(9px, 0.9vw, 22px)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>
                     <span style={{ color: '#2f2f2f' }}>Foi · Prière · Consécration · Morel</span>
@@ -110,10 +110,33 @@ export default function LookbackHero() {
                 </nav>
 
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
-                    <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(18px, 3vw, 54px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
-                        Jeunesse®<br />Foursquare<br />
-                        <span style={{ color: '#ff1f37' }}>Cote d&apos;ivoire</span>
-                    </h1>
+  <h1
+    style={{
+        margin: '-10px 0 0',
+        textTransform: 'uppercase',
+        fontFamily: 'Anton, Impact, sans-serif',
+        color: '#060606',
+        fontSize: 'clamp(18px, 3vw, 54px)',
+        lineHeight: 0.88,
+        letterSpacing: '-0.01em',
+        textAlign: 'center',
+    }}
+>
+    <span style={{ display: 'block', marginBottom: '6px' }}>
+        JEUNESSE FOURSQUARE
+    </span>
+
+    <span
+        style={{
+            display: 'block',
+            color: '#ff1f37',
+            fontSize: 'clamp(20px, 3.2vw, 58px)',
+            letterSpacing: '0.01em',
+        }}
+    >
+        COTE D&apos;IVOIRE
+    </span>
+</h1>
 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '10px', flexWrap: 'wrap' }}>
                         <span style={{ width: 'clamp(80px, 16vw, 290px)', height: '2px', background: 'rgba(15, 15, 15, 0.65)' }} />
@@ -125,54 +148,88 @@ export default function LookbackHero() {
 
                     <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
                 </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '10px', alignItems: 'stretch', position: 'relative', zIndex: 3 }}>
+<div
+    style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(5, 1fr)',
+        gap: '14px',
+        alignItems: 'start',
+        position: 'relative',
+        zIndex: 3,
+        marginTop: '8px',
+    }}
+>
     {heroCards.map((card) => (
         <article
             key={card.label}
             style={{
-                transform: 'skewX(-6deg)',   // ✅ même angle pour tous
-                transformOrigin: 'bottom center',
+                display: 'grid',
+                gridTemplateRows: '260px auto auto',
+                justifyItems: 'center',
+                alignItems: 'start',
             }}
         >
             <div
                 style={{
+                    width: '100%',
+                    height: '260px',
                     overflow: 'hidden',
-                    boxSizing: 'border-box',
-                    // ✅ pas de border, pas de boxShadow
+                    background: '#ddd',
+                    clipPath: 'polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)',
                 }}
             >
                 <img
                     src={card.src}
                     alt={card.alt}
                     style={{
-                        width: '85%',
-                        aspectRatio: '3 / 4',
+                        width: '100%',
+                        height: '100%',
                         objectFit: 'cover',
                         objectPosition: 'center',
                         display: 'block',
                     }}
                 />
             </div>
-            <div style={{ marginTop: '8px', textAlign: 'center' }}>
-                <div
+
+            <div
+                style={{
+                    width: '68%',
+                    marginTop: '8px',
+                    padding: '5px 10px',
+                    background: card.accent,
+                    color: '#fff',
+                    fontWeight: 900,
+                    fontSize: 'clamp(10px, 0.85vw, 16px)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.03em',
+                    textAlign: 'center',
+                    transform: 'skewX(-12deg)',
+                    boxSizing: 'border-box',
+                }}
+            >
+                <span
                     style={{
-                        display: 'inline-block',
-                        minWidth: '78%',
-                        padding: '6px 10px',
-                        background: card.accent,
-                        color: '#fff',
-                        fontWeight: 900,
-                        fontSize: 'clamp(12px, 1.15vw, 24px)',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.03em',
-                        transform: 'skewX(-18deg)',
+                        display: 'block',
+                        transform: 'skewX(12deg)',
                     }}
                 >
-                    <span style={{ display: 'inline-block', transform: 'skewX(18deg)' }}>{card.label}</span>
-                </div>
-                <p style={{ margin: '8px 0 0', fontFamily: '"Brush Script MT", "Segoe Script", cursive', color: '#2a2a2a', fontSize: 'clamp(16px, 1.35vw, 30px)' }}>{card.caption}</p>
+                    {card.label}
+                </span>
             </div>
+
+            <p
+                style={{
+                    margin: '8px 0 0',
+                    fontFamily: '"Brush Script MT", "Segoe Script", cursive',
+                    color: '#2a2a2a',
+                    fontSize: 'clamp(13px, 1vw, 20px)',
+                    lineHeight: 1,
+                    textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                }}
+            >
+                {card.caption}
+            </p>
         </article>
     ))}
 </div>
