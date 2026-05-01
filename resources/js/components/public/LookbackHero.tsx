@@ -74,14 +74,14 @@ export default function LookbackHero() {
                 .hero-icon:nth-child(4) { animation-delay: 0.99s; }
                 .hero-cta { animation: heroButtonGlow 1.5s ease-out 0.9s 1 both; }
             `}</style>
-            <div className="mx-auto max-w-[1550px] rounded-[40px] border border-[#ece8df] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
-                <div className="grid gap-8 xl:grid-cols-[0.9fr_1.45fr]">
+            <div className="mx-auto max-w-[1250px] rounded-[34px] border border-[#ece8df] bg-white px-5 py-5 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-8 lg:py-6">
+                <div className="grid gap-6 xl:grid-cols-[0.9fr_1.45fr]">
                     <div className="flex flex-col justify-between">
                         <div className="space-y-3">
                             <p className="hero-animate font-mono text-[11px] font-semibold tracking-[0.22em] text-[#b8811f] uppercase">
                                 FOI • UNITÉ • MISSION • IMPACT
                             </p>
-                            <h1 className="mt-5 font-['Anton'] text-[3rem] leading-[0.95] tracking-tight uppercase sm:text-[4.15rem]">
+                            <h1 className="mt-4 font-['Anton'] text-[2.35rem] leading-[0.95] tracking-tight uppercase sm:text-[3.2rem]">
                                 {titleLines.map((line, index) => (
                                     <span
                                         key={line}
@@ -92,9 +92,9 @@ export default function LookbackHero() {
                                 ))}
                             </h1>
 
-                            <div className="hero-draw-line mt-5 h-[2px] w-14 bg-[#b8811f]" />
+                            <div className="hero-draw-line mt-4 h-[2px] w-14 bg-[#b8811f]" />
 
-                            <p className="mt-5 max-w-md text-[1.12rem] leading-[1.65] text-[#1a1a1a]">
+                            <p className="mt-4 max-w-md text-[1rem] leading-[1.55] text-[#1a1a1a]">
                                 {textLines.map((line) => (
                                     <span
                                         key={line.highlight}
@@ -109,7 +109,7 @@ export default function LookbackHero() {
                         </div>
 
                         <p
-                            className="hero-animate mt-4 max-w-md text-[1rem] leading-relaxed text-[#5a5a5a]"
+                            className="hero-animate mt-4 max-w-md text-[0.92rem] leading-relaxed text-[#5a5a5a]"
                             style={{ animationDelay: '0.9s' }}
                         >
                             Un mouvement de jeunes passionnés, appelés à adorer
@@ -117,36 +117,36 @@ export default function LookbackHero() {
                             Christ.
                         </p>
 
-                        <div className="mt-6 grid grid-cols-4 gap-3">
+                        <div className="mt-5 grid grid-cols-4 gap-2.5">
                             {pillars.map(({ icon: Icon, label, desc }) => (
                                 <div
                                     key={label}
                                     className="hero-icon flex flex-col items-center gap-2 text-center"
                                 >
-                                    <div className="flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-[#b8811f] text-[#b8811f]">
-                                        <Icon size={19} strokeWidth={1.5} />
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-full border-[1.5px] border-[#b8811f] text-[#b8811f]">
+                                        <Icon size={17} strokeWidth={1.5} />
                                     </div>
-                                    <span className="text-[11px] font-bold tracking-[0.1em] text-[#0a0a0a] uppercase">
+                                    <span className="text-[10px] font-bold tracking-[0.1em] text-[#0a0a0a] uppercase">
                                         {label}
                                     </span>
-                                    <span className="text-[11px] leading-tight text-[#7a7a7a]">
+                                    <span className="text-[10px] leading-tight text-[#7a7a7a]">
                                         {desc}
                                     </span>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="mt-6 flex flex-wrap gap-3">
+                        <div className="mt-5 flex flex-wrap gap-2.5">
                             <Link
                                 href="/convention-2026"
-                                className="hero-cta inline-flex items-center gap-2 rounded-md bg-[#bf8b25] px-5 py-3 text-sm font-semibold text-white uppercase transition duration-300 hover:-translate-y-0.5 hover:bg-[#aa7b1f] hover:shadow-[0_10px_26px_rgba(191,139,37,0.22)]"
+                                className="hero-cta inline-flex items-center gap-2 rounded-md bg-[#bf8b25] px-4 py-2.5 text-[0.79rem] font-semibold text-white uppercase transition duration-300 hover:-translate-y-0.5 hover:bg-[#aa7b1f] hover:shadow-[0_10px_26px_rgba(191,139,37,0.22)]"
                             >
                                 PARTICIPER À LA CONVENTION
                                 <ArrowRight size={16} />
                             </Link>
                             <Link
                                 href="/a-propos"
-                                className="inline-flex items-center gap-2 rounded-md border border-[#111] px-5 py-3 text-sm font-semibold text-[#111] uppercase transition hover:bg-black/5"
+                                className="inline-flex items-center gap-2 rounded-md border border-[#111] px-4 py-2.5 text-[0.79rem] font-semibold text-[#111] uppercase transition hover:bg-black/5"
                             >
                                 DÉCOUVRIR LE MOUVEMENT
                                 <ArrowRight size={16} />
@@ -159,7 +159,7 @@ export default function LookbackHero() {
                             <img
                                 src="/images/image 7.jpg"
                                 alt="Foule de jeunes en louange pendant le rassemblement"
-                                className="hero-main-image h-[300px] w-full rounded-xl object-cover md:h-[400px]"
+                                className="hero-main-image h-[240px] w-full rounded-xl object-cover md:h-[315px]"
                             />
                         </article>
 
@@ -172,9 +172,9 @@ export default function LookbackHero() {
                                     <img
                                         src={card.src}
                                         alt={`Galerie jeunesse foursquare - ${card.title}`}
-                                        className="h-[180px] w-full rounded-xl object-cover transition duration-500 group-hover:scale-[1.03] md:h-[210px]"
+                                        className="h-[155px] w-full rounded-xl object-cover transition duration-500 group-hover:scale-[1.03] md:h-[180px]"
                                     />
-                                    <span className="pointer-events-none absolute top-4 left-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-white uppercase">
+                                    <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-white uppercase">
                                         {card.title}
                                     </span>
                                 </article>
