@@ -4,6 +4,7 @@ import ConventionModal from '@/components/ConventionModal';
 import Header from '@/components/public/Header';
 import LookbackHero from '@/components/public/LookbackHero';
 import NotreVisionSection from '@/components/public/NotreVisionSection';
+import PresidentMessageSection from '@/components/public/PresidentMessageSection';
 import BackgroundComponents from '@/components/ui/background-components';
 import TeamShowcase from '@/components/ui/team-showcase';
 
@@ -43,6 +44,7 @@ export default function Accueil() {
                 <main>
                     <LookbackHero />
                     <NotreVisionSection />
+                    <PresidentMessageSection />
                     <section className="bg-[#efede8] px-5 pb-16 sm:px-8 lg:px-16">
                         <div className="mx-auto w-full max-w-[1100px]">
                             <TeamShowcase />
