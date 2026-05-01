@@ -27,8 +27,8 @@ const valueCards: ValueCard[] = [
 
 export default function LookbackHero() {
     return (
-        <section className="px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-            <div className="mx-auto max-w-[1280px] rounded-[40px] border border-[#ece8df] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
+        <section className="py-6 lg:py-8">
+            <div className="mx-auto max-w-[1550px] rounded-[40px] border border-[#ece8df] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
                 <div className="grid gap-8 xl:grid-cols-[0.9fr_1.45fr]">
                     <div className="flex flex-col justify-between">
                         <div className="space-y-3">
