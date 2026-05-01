@@ -102,36 +102,53 @@ export default function LookbackHero() {
                     }}
                 /> */}
 
-                <nav style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(10px, 1vw, 16px)', marginBottom: '14px', position: 'relative', zIndex: 2 }}>
-                    <Link
-                        href="/"
-                        style={{
-                            color: '#2f2f2f',
-                            textDecoration: 'none',
-                            border: '1px solid rgba(47, 47, 47, 0.35)',
-                            padding: '7px 16px',
-                            borderRadius: '999px',
-                            background: 'rgba(255, 255, 255, 0.75)',
-                            transition: 'all 0.2s ease',
-                        }}
-                    >
-                        Accueil
-                    </Link>
-                    <Link
-                        href="/convention-2026"
-                        style={{
-                            color: '#fff',
-                            textDecoration: 'none',
-                            border: '1px solid #ef1f33',
-                            padding: '7px 16px',
-                            borderRadius: '999px',
-                            background: '#ef1f33',
-                            transition: 'all 0.2s ease',
-                        }}
-                    >
-                        Convention 2026
-                    </Link>
-                </nav>
+                <nav
+    style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        gap: '34px',
+        fontFamily: '"IBM Plex Mono", monospace',
+        fontSize: 'clamp(12px, 1vw, 18px)',
+        marginBottom: '14px',
+        paddingLeft: '20px',
+        position: 'relative',
+        zIndex: 2,
+    }}
+>
+    <Link
+        href="/"
+        style={{
+            color: '#111',
+            textDecoration: 'none',
+            fontWeight: 500,
+        }}
+    >
+        Accueil
+    </Link>
+
+    <Link
+        href="/convention-2026"
+        style={{
+            color: '#111',
+            textDecoration: 'none',
+            fontWeight: 500,
+        }}
+    >
+        Convention 2026
+    </Link>
+
+    <span
+        style={{
+            color: '#111',
+            fontSize: '22px',
+            lineHeight: 1,
+            marginLeft: '4px',
+        }}
+    >
+        ⋮
+    </span>
+</nav>
 
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
   <h1
@@ -217,7 +234,7 @@ export default function LookbackHero() {
             <div
                 style={{
                     width: '68%',
-                    marginTop: '8px',
+                    marginTop: '3px',
                     padding: '5px 10px',
                     background: card.accent,
                     color: '#fff',
