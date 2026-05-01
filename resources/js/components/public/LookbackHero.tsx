@@ -134,7 +134,8 @@ export default function LookbackHero() {
                                     background: '#ddd',
                                     overflow: 'hidden',
                                     boxSizing: 'border-box',
-                                    width: '100%',
+                                    width: '92%',
+                                    margin: '0 auto',
                                 }}
                             >
                                 <img
