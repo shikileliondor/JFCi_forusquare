@@ -146,7 +146,6 @@ export default function LookbackHero() {
                         <span style={{ width: 'clamp(80px, 16vw, 290px)', height: '2px', background: 'rgba(15, 15, 15, 0.65)' }} />
                     </div>
 
-                    <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
                 </div>
 <div
     style={{
