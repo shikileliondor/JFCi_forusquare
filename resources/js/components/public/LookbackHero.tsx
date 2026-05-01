@@ -1,112 +1,119 @@
 import { Link } from '@inertiajs/react';
+import { ArrowRight } from 'lucide-react';
 
-interface HeroCard {
+interface ValueCard {
     accent: string;
-    alt: string;
-    caption: string;
+    icon: string;
     label: string;
     src: string;
+    subtitle: string;
 }
 
-const heroCards: HeroCard[] = [
+const valueCards: ValueCard[] = [
     {
         src: '/images/image  (1).jpg',
-        alt: 'Jeune homme adorant avec un micro',
         label: 'ADORER',
-        caption: 'Un cœur pour Dieu',
-        accent: '#F21E34',
+        subtitle: 'Un cœur pour Dieu',
+        accent: '#ef1f33',
+        icon: '✚',
     },
     {
         src: '/images/image  (4).jpg',
-        alt: 'Jeunes servant avec enthousiasme',
         label: 'SERVIR',
-        caption: 'Des mains pour aimer',
+        subtitle: 'Des mains pour aimer',
         accent: '#1998ED',
+        icon: '🕊',
     },
     {
         src: '/images/image  (5).jpg',
-        alt: 'Jeunesse avec panneau et sourire',
         label: 'ÉQUIPER',
-        caption: 'Des vies transformées',
+        subtitle: 'Des vies transformées',
         accent: '#F0BD14',
+        icon: '♜',
     },
     {
         src: '/images/image 2 .jpg',
-        alt: 'Amies connectées lors du rassemblement',
         label: 'CONNECTER',
-        caption: 'Une génération unie',
+        subtitle: 'Une génération unie',
         accent: '#9028D5',
-    },
-    {
-        src: '/images/image 7.jpg',
-        alt: 'Groupe rayonnant en mission',
-        label: 'IMPACTER',
-        caption: 'Le monde pour Christ',
-        accent: '#18B95D',
+        icon: '♛',
     },
 ];
 
 export default function LookbackHero() {
     return (
-        <section className="w-full bg-gradient-to-b from-[#ededef] to-[#d8d8da] px-2 py-4 sm:px-4 sm:py-6 lg:px-6 lg:py-8">
-            <div className="mx-auto w-full max-w-[1520px] border border-black/5 bg-[#f8f8f8] px-4 py-5 shadow-[0_22px_64px_rgba(18,18,18,0.12)] sm:px-6 lg:px-10 lg:py-8">
-                <nav className="mb-4 flex items-center gap-4 overflow-x-auto pb-1 font-mono text-xs text-[#111] sm:gap-8 sm:text-sm lg:text-base">
-                    <Link href="/" className="whitespace-nowrap font-medium hover:opacity-80">
-                        Accueil
-                    </Link>
-                    <Link href="/convention-2026" className="whitespace-nowrap font-medium hover:opacity-80">
-                        Convention 2026
-                    </Link>
-                    <span className="text-xl leading-none">⋮</span>
-                </nav>
-
-                <div className="text-center">
-                    <h1 className="font-['Anton'] text-[2rem] leading-[0.9] tracking-tight text-[#060606] uppercase sm:text-[3.2rem] lg:text-[4.2rem]">
-                        <span className="block">JEUNESSE FOURSQUARE</span>
-                        <span className="mt-1 block text-[#ff1f37]">COTE D&apos;IVOIRE</span>
-                    </h1>
-
-                    <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
-                        <span className="hidden h-[2px] w-20 bg-black/60 sm:block md:w-36 lg:w-64" />
-                        {['✝', '🕊', '♜', '♛'].map((icon, index) => (
-                            <span
-                                key={`${icon}-${index}`}
-                                className="inline-flex h-8 w-8 items-center justify-center text-base text-white sm:h-10 sm:w-10 sm:text-lg"
-                                style={{
-                                    backgroundColor:
-                                        index === 0 ? '#0e0e0e' : index === 1 ? '#ef1f33' : index === 2 ? '#1998ED' : '#F0BD14',
-                                }}
-                            >
-                                {icon}
-                            </span>
-                        ))}
-                        <span className="hidden h-[2px] w-20 bg-black/60 sm:block md:w-36 lg:w-64" />
-                    </div>
-                </div>
-
-                <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
-                    {heroCards.map((card) => (
-                        <article key={card.label} className="grid justify-items-center">
-                            <div className="h-[320px] w-full overflow-hidden bg-[#ddd] [clip-path:polygon(8%_0%,100%_0%,92%_100%,0%_100%)] sm:h-[300px] lg:h-[390px]">
-                                <img
-                                    src={card.src}
-                                    alt={card.alt}
-                                    className="h-full w-full object-cover object-center"
-                                />
-                            </div>
-
-                            <div
-                                className="mt-2 w-[78%] -skew-x-12 px-3 py-2 text-center text-sm font-black tracking-wide text-white uppercase sm:text-base"
-                                style={{ backgroundColor: card.accent }}
-                            >
-                                <span className="block skew-x-12">{card.label}</span>
-                            </div>
-
-                            <p className="mt-2 text-center font-['Brush_Script_MT','Segoe_Script',cursive] text-[1.35rem] text-[#2a2a2a]">
-                                {card.caption}
+        <section className="px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+            <div className="mx-auto max-w-[1280px] rounded-[40px] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
+                <div className="grid gap-8 lg:grid-cols-[0.9fr_1.45fr]">
+                    <div className="flex flex-col justify-between">
+                        <div>
+                            <p className="font-mono text-[11px] font-semibold tracking-[0.22em] text-[#b8811f] uppercase">
+                                FOI • UNITÉ • MISSION • IMPACT
                             </p>
-                        </article>
-                    ))}
+                            <h1 className="mt-5 font-['Anton'] text-[3rem] leading-[0.85] tracking-tight uppercase sm:text-[4.15rem]">
+                                <span className="block text-[#0a0a0a]">JEUNESSE</span>
+                                <span className="block text-[#0a0a0a]">FOURSQUARE</span>
+                                <span className="block text-[#ef1f33]">COTE D&apos;IVOIRE</span>
+                            </h1>
+
+                            <div className="mt-5 h-[2px] w-14 bg-[#b8811f]" />
+                            <p className="mt-5 max-w-md text-base text-[#2f2f2f]">
+                                Une génération appelée à adorer, servir, se connecter et impacter le monde pour Christ.
+                            </p>
+                        </div>
+
+                        <div className="mt-6 flex flex-wrap gap-3">
+                            <Link
+                                href="/convention-2026"
+                                className="inline-flex items-center gap-2 rounded-md bg-[#bf8b25] px-5 py-3 text-sm font-semibold text-white uppercase transition hover:opacity-90"
+                            >
+                                PARTICIPER À LA CONVENTION
+                                <ArrowRight size={16} />
+                            </Link>
+                            <Link
+                                href="/a-propos"
+                                className="inline-flex items-center gap-2 rounded-md border border-[#111] px-5 py-3 text-sm font-semibold text-[#111] uppercase transition hover:bg-black/5"
+                            >
+                                DÉCOUVRIR LE MOUVEMENT
+                                <ArrowRight size={16} />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div>
+                        <nav className="mb-5 flex flex-wrap items-center gap-7 text-sm font-semibold text-[#111]">
+                            <Link href="/" className="text-[#b8811f]">Accueil</Link>
+                            <Link href="/convention-2026">Convention 2026</Link>
+                            <Link href="/a-propos">À propos</Link>
+                            <Link href="/programme">Programme</Link>
+                            <Link href="/contact">Contact</Link>
+                        </nav>
+
+                        <img
+                            src="/images/image 7.jpg"
+                            alt="Foule de jeunes en louange pendant le rassemblement"
+                            className="h-[260px] w-full rounded-xl object-cover"
+                        />
+
+                        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                            {valueCards.map((card) => (
+                                <article key={card.label} className="relative overflow-hidden rounded-xl bg-black">
+                                    <img src={card.src} alt={card.label} className="h-[138px] w-full object-cover opacity-80" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent" />
+
+                                    <div className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-md text-white" style={{ backgroundColor: card.accent }}>
+                                        {card.icon}
+                                    </div>
+
+                                    <div className="absolute bottom-3 left-3 right-3">
+                                        <p className="text-[1.65rem] font-extrabold tracking-tight text-white">{card.label}</p>
+                                        <p className="text-sm text-white/90">{card.subtitle}</p>
+                                        <span className="mt-2 block h-[3px] w-10 rounded" style={{ backgroundColor: card.accent }} />
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
