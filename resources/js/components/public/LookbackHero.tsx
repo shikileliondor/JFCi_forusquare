@@ -3,30 +3,35 @@ import { ArrowRight } from 'lucide-react';
 
 interface ValueCard {
     src: string;
+    title: string;
 }
 
 const valueCards: ValueCard[] = [
     {
         src: '/images/image  (1).jpg',
+        title: 'Adoration',
     },
     {
         src: '/images/image  (4).jpg',
+        title: 'Unité',
     },
     {
         src: '/images/image  (5).jpg',
+        title: 'Mission',
     },
     {
         src: '/images/image 2 .jpg',
+        title: 'Impact',
     },
 ];
 
 export default function LookbackHero() {
     return (
         <section className="px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-            <div className="mx-auto max-w-[1280px] rounded-[40px] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
-                <div className="grid gap-8 lg:grid-cols-[0.9fr_1.45fr]">
+            <div className="mx-auto max-w-[1280px] rounded-[40px] border border-[#ece8df] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
+                <div className="grid gap-8 xl:grid-cols-[0.9fr_1.45fr]">
                     <div className="flex flex-col justify-between">
-                        <div>
+                        <div className="space-y-3">
                             <p className="font-mono text-[11px] font-semibold tracking-[0.22em] text-[#b8811f] uppercase">
                                 FOI • UNITÉ • MISSION • IMPACT
                             </p>
@@ -60,17 +65,29 @@ export default function LookbackHero() {
                         </div>
                     </div>
 
-                    <div>
-                        <img
-                            src="/images/image 7.jpg"
-                            alt="Foule de jeunes en louange pendant le rassemblement"
-                            className="h-[300px] w-full rounded-xl object-cover md:h-[360px]"
-                        />
+                    <div className="space-y-3">
+                        <article className="overflow-hidden rounded-2xl border border-[#ece8df] bg-[#faf8f2] p-2">
+                            <img
+                                src="/images/image 7.jpg"
+                                alt="Foule de jeunes en louange pendant le rassemblement"
+                                className="h-[300px] w-full rounded-xl object-cover md:h-[400px]"
+                            />
+                        </article>
 
                         <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {valueCards.map((card) => (
-                                <article key={card.src} className="overflow-hidden rounded-xl">
-                                    <img src={card.src} alt="Galerie jeunesse foursquare" className="h-[180px] w-full object-cover md:h-[210px]" />
+                                <article
+                                    key={card.src}
+                                    className="group relative overflow-hidden rounded-2xl border border-[#ece8df] bg-[#faf8f2] p-2"
+                                >
+                                    <img
+                                        src={card.src}
+                                        alt={`Galerie jeunesse foursquare - ${card.title}`}
+                                        className="h-[180px] w-full rounded-xl object-cover transition duration-300 group-hover:scale-[1.02] md:h-[210px]"
+                                    />
+                                    <span className="pointer-events-none absolute top-4 left-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-white uppercase">
+                                        {card.title}
+                                    </span>
                                 </article>
                             ))}
                         </div>
