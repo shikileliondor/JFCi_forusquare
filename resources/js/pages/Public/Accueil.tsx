@@ -1,8 +1,8 @@
 import { Head } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import Header from '@/components/public/Header';
-import LeaderSupportSection from '@/components/public/LeaderSupportSection';
 import LookbackHero from '@/components/public/LookbackHero';
+import NotreVisionSection from '@/components/public/NotreVisionSection';
 import BackgroundComponents from '@/components/ui/background-components';
 
 export default function Accueil() {
@@ -39,7 +39,7 @@ export default function Accueil() {
             <BackgroundComponents>
                 <main>
                     <LookbackHero />
-                    <LeaderSupportSection />
+                    <NotreVisionSection />
                 </main>
             </BackgroundComponents>
         </>
