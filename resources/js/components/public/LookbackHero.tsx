@@ -2,41 +2,21 @@ import { Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 
 interface ValueCard {
-    accent: string;
-    icon: string;
-    label: string;
     src: string;
-    subtitle: string;
 }
 
 const valueCards: ValueCard[] = [
     {
         src: '/images/image  (1).jpg',
-        label: 'ADORER',
-        subtitle: 'Un cœur pour Dieu',
-        accent: '#ef1f33',
-        icon: '✚',
     },
     {
         src: '/images/image  (4).jpg',
-        label: 'SERVIR',
-        subtitle: 'Des mains pour aimer',
-        accent: '#1998ED',
-        icon: '🕊',
     },
     {
         src: '/images/image  (5).jpg',
-        label: 'ÉQUIPER',
-        subtitle: 'Des vies transformées',
-        accent: '#F0BD14',
-        icon: '♜',
     },
     {
         src: '/images/image 2 .jpg',
-        label: 'CONNECTER',
-        subtitle: 'Une génération unie',
-        accent: '#9028D5',
-        icon: '♛',
     },
 ];
 
@@ -81,35 +61,16 @@ export default function LookbackHero() {
                     </div>
 
                     <div>
-                        <nav className="mb-5 flex flex-wrap items-center gap-7 text-sm font-semibold text-[#111]">
-                            <Link href="/" className="text-[#b8811f]">Accueil</Link>
-                            <Link href="/convention-2026">Convention 2026</Link>
-                            <Link href="/a-propos">À propos</Link>
-                            <Link href="/programme">Programme</Link>
-                            <Link href="/contact">Contact</Link>
-                        </nav>
-
                         <img
                             src="/images/image 7.jpg"
                             alt="Foule de jeunes en louange pendant le rassemblement"
-                            className="h-[260px] w-full rounded-xl object-cover"
+                            className="h-[300px] w-full rounded-xl object-cover md:h-[360px]"
                         />
 
                         <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {valueCards.map((card) => (
-                                <article key={card.label} className="relative overflow-hidden rounded-xl bg-black">
-                                    <img src={card.src} alt={card.label} className="h-[138px] w-full object-cover opacity-80" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent" />
-
-                                    <div className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-md text-white" style={{ backgroundColor: card.accent }}>
-                                        {card.icon}
-                                    </div>
-
-                                    <div className="absolute bottom-3 left-3 right-3">
-                                        <p className="text-[1.65rem] font-extrabold tracking-tight text-white">{card.label}</p>
-                                        <p className="text-sm text-white/90">{card.subtitle}</p>
-                                        <span className="mt-2 block h-[3px] w-10 rounded" style={{ backgroundColor: card.accent }} />
-                                    </div>
+                                <article key={card.src} className="overflow-hidden rounded-xl">
+                                    <img src={card.src} alt="Galerie jeunesse foursquare" className="h-[180px] w-full object-cover md:h-[210px]" />
                                 </article>
                             ))}
                         </div>
