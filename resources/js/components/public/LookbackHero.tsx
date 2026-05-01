@@ -101,9 +101,9 @@ export default function LookbackHero() {
                     }}
                 /> */}
 
-                <nav style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(9px, 0.9vw, 22px)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>
-                    <span style={{ color: '#2f2f2f' }}>Foi · Prière · Consécration · Morel</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#2f2f2f' }}>
+                <nav style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(9px, 0.9vw, 22px)', marginBottom: '12px', position: 'relative', zIndex: 2, flexWrap: 'wrap' }}>
+                    <span style={{ color: '#2f2f2f', textAlign: 'left' }}>Foi · Prière · Consécration · Morel</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#2f2f2f', marginLeft: 'auto' }}>
                         <span style={{ width: '11px', height: '11px', borderRadius: '2px', background: '#ef1f33' }} />
                         Easy Way Out / Bi
                     </span>
@@ -146,13 +146,13 @@ export default function LookbackHero() {
                         <span style={{ width: 'clamp(80px, 16vw, 290px)', height: '2px', background: 'rgba(15, 15, 15, 0.65)' }} />
                     </div>
 
-                    <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: '0.22em', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
+                    <p style={{ marginTop: '14px', marginBottom: '20px', fontFamily: '"IBM Plex Mono", monospace', letterSpacing: 'clamp(0.08em, 0.9vw, 0.22em)', fontSize: 'clamp(10px, 1.1vw, 26px)', color: '#181818' }}>FOI • UNITÉ • MISSION • IMPACT</p>
                 </div>
 <div
     style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
-        gap: '14px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+        gap: 'clamp(12px, 1.4vw, 18px)',
         alignItems: 'start',
         position: 'relative',
         zIndex: 3,
@@ -164,7 +164,7 @@ export default function LookbackHero() {
             key={card.label}
             style={{
                 display: 'grid',
-                gridTemplateRows: '260px auto auto',
+                gridTemplateRows: 'clamp(220px, 32vw, 420px) auto auto',
                 justifyItems: 'center',
                 alignItems: 'start',
             }}
@@ -172,7 +172,7 @@ export default function LookbackHero() {
             <div
                 style={{
                     width: '100%',
-                    height: '260px',
+                    height: 'clamp(220px, 32vw, 420px)',
                     overflow: 'hidden',
                     background: '#ddd',
                     clipPath: 'polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)',
@@ -193,7 +193,7 @@ export default function LookbackHero() {
 
             <div
                 style={{
-                    width: '68%',
+                    width: 'min(230px, 80%)',
                     marginTop: '8px',
                     padding: '5px 10px',
                     background: card.accent,
@@ -225,7 +225,7 @@ export default function LookbackHero() {
                     fontSize: 'clamp(13px, 1vw, 20px)',
                     lineHeight: 1,
                     textAlign: 'center',
-                    whiteSpace: 'nowrap',
+                    whiteSpace: 'normal',
                 }}
             >
                 {card.caption}
