@@ -58,7 +58,7 @@ const styles: Record<string, CSSProperties> = {
     },
     frame: {
         width: 'min(4000px, 150%)',
-        borderRadius: '32px',
+        borderRadius: '0',
         background: '#f8f8f8',
         border: '1px solid rgba(0, 0, 0, 0.06)',
         boxShadow: '0 22px 64px rgba(18, 18, 18, 0.12)',
@@ -129,7 +129,7 @@ export default function LookbackHero() {
                             <div
                                 style={{
                                     border: 'none',
-                                    borderRadius: '8px',
+                                    borderRadius: '0',
                                     boxShadow: '0 9px 30px rgba(0, 0, 0, 0.18)',
                                     background: '#ddd',
                                     overflow: 'hidden',
@@ -142,10 +142,11 @@ export default function LookbackHero() {
                                     alt={card.alt}
                                     style={{
                                         width: '100%',
-                                        height: 'clamp(220px, 24vw, 350px)',
+                                        aspectRatio: '3 / 4',
                                         objectFit: 'cover',
                                         objectPosition: 'center',
                                         display: 'block',
+                                        clipPath: 'polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%)',
                                     }}
                                 />
                             </div>
