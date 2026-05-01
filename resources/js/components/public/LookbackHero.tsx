@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react';
 import type { CSSProperties } from 'react';
 
 interface HeroCard {
@@ -101,12 +102,35 @@ export default function LookbackHero() {
                     }}
                 /> */}
 
-                <nav style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(9px, 0.9vw, 22px)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>
-                    <span style={{ color: '#2f2f2f' }}>Foi · Prière · Consécration · Morel</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#2f2f2f' }}>
-                        <span style={{ width: '11px', height: '11px', borderRadius: '2px', background: '#ef1f33' }} />
-                        Easy Way Out / Bi
-                    </span>
+                <nav style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(10px, 1vw, 16px)', marginBottom: '14px', position: 'relative', zIndex: 2 }}>
+                    <Link
+                        href="/"
+                        style={{
+                            color: '#2f2f2f',
+                            textDecoration: 'none',
+                            border: '1px solid rgba(47, 47, 47, 0.35)',
+                            padding: '7px 16px',
+                            borderRadius: '999px',
+                            background: 'rgba(255, 255, 255, 0.75)',
+                            transition: 'all 0.2s ease',
+                        }}
+                    >
+                        Accueil
+                    </Link>
+                    <Link
+                        href="/convention-2026"
+                        style={{
+                            color: '#fff',
+                            textDecoration: 'none',
+                            border: '1px solid #ef1f33',
+                            padding: '7px 16px',
+                            borderRadius: '999px',
+                            background: '#ef1f33',
+                            transition: 'all 0.2s ease',
+                        }}
+                    >
+                        Convention 2026
+                    </Link>
                 </nav>
 
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
