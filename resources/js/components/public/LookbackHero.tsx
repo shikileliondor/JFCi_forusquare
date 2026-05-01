@@ -49,7 +49,7 @@ const heroCards: HeroCard[] = [
 const styles: Record<string, CSSProperties> = {
     page: {
         width: '100%',
-        minHeight: '100vh',
+        minHeight: '90vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -57,7 +57,7 @@ const styles: Record<string, CSSProperties> = {
         padding: 'clamp(8px, 1.4vw, 26px)',
     },
     frame: {
-        width: 'min(4000px, 150%)',
+        width: 'min(1500px, 98%)',
         borderRadius: '0',
         background: '#f8f8f8',
         border: '1px solid rgba(0, 0, 0, 0.06)',
@@ -103,14 +103,17 @@ export default function LookbackHero() {
 
                 <nav style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: 'clamp(9px, 0.9vw, 22px)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>
                     <span style={{ color: '#2f2f2f' }}>Foi · Prière · Consécration · Morel</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#2f2f2f' }}><span style={{ width: '11px', height: '11px', borderRadius: '2px', background: '#ef1f33' }} />Easy Way Out / Bi</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#2f2f2f' }}>
+                        <span style={{ width: '11px', height: '11px', borderRadius: '2px', background: '#ef1f33' }} />
+                        Easy Way Out / Bi
+                    </span>
                 </nav>
 
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
-                   <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(24px, 4.2vw, 78px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
-    Jeunesse®<br />Foursquare<br />
-    <span style={{ color: '#ff1f37' }}>Cote d&apos;ivoire</span>
-</h1>
+                    <h1 style={{ margin: 0, textTransform: 'uppercase', fontFamily: 'Anton, Impact, sans-serif', color: '#060606', fontSize: 'clamp(18px, 3vw, 54px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>
+                        Jeunesse®<br />Foursquare<br />
+                        <span style={{ color: '#ff1f37' }}>Cote d&apos;ivoire</span>
+                    </h1>
 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '10px', flexWrap: 'wrap' }}>
                         <span style={{ width: 'clamp(80px, 16vw, 290px)', height: '2px', background: 'rgba(15, 15, 15, 0.65)' }} />
@@ -124,55 +127,55 @@ export default function LookbackHero() {
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '10px', alignItems: 'stretch', position: 'relative', zIndex: 3 }}>
-                    {heroCards.map((card) => (
-                        <article key={card.label}>
-                            <div
-                                style={{
-                                    border: 'none',
-                                    borderRadius: '0',
-                                    boxShadow: '0 9px 30px rgba(0, 0, 0, 0.18)',
-                                    background: '#ddd',
-                                    overflow: 'hidden',
-                                    boxSizing: 'border-box',
-                                    width: '92%',
-                                    margin: '0 auto',
-                                }}
-                            >
-                                <img
-                                    src={card.src}
-                                    alt={card.alt}
-                                    style={{
-                                        width: '100%',
-                                        aspectRatio: '3 / 4',
-                                        objectFit: 'cover',
-                                        objectPosition: 'center',
-                                        display: 'block',
-                                        clipPath: 'polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%)',
-                                    }}
-                                />
-                            </div>
-                            <div style={{ marginTop: '8px', textAlign: 'center' }}>
-                                <div
-                                    style={{
-                                        display: 'inline-block',
-                                        minWidth: '78%',
-                                        padding: '6px 10px',
-                                        background: card.accent,
-                                        color: '#fff',
-                                        fontWeight: 900,
-                                        fontSize: 'clamp(12px, 1.15vw, 24px)',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '0.03em',
-                                        transform: 'skewX(-18deg)',
-                                    }}
-                                >
-                                    <span style={{ display: 'inline-block', transform: 'skewX(18deg)' }}>{card.label}</span>
-                                </div>
-                                <p style={{ margin: '8px 0 0', fontFamily: '"Brush Script MT", "Segoe Script", cursive', color: '#2a2a2a', fontSize: 'clamp(16px, 1.35vw, 30px)' }}>{card.caption}</p>
-                            </div>
-                        </article>
-                    ))}
+    {heroCards.map((card) => (
+        <article
+            key={card.label}
+            style={{
+                transform: 'skewX(-6deg)',   // ✅ même angle pour tous
+                transformOrigin: 'bottom center',
+            }}
+        >
+            <div
+                style={{
+                    overflow: 'hidden',
+                    boxSizing: 'border-box',
+                    // ✅ pas de border, pas de boxShadow
+                }}
+            >
+                <img
+                    src={card.src}
+                    alt={card.alt}
+                    style={{
+                        width: '100%',
+                        aspectRatio: '3 / 4',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        display: 'block',
+                    }}
+                />
+            </div>
+            <div style={{ marginTop: '8px', textAlign: 'center' }}>
+                <div
+                    style={{
+                        display: 'inline-block',
+                        minWidth: '78%',
+                        padding: '6px 10px',
+                        background: card.accent,
+                        color: '#fff',
+                        fontWeight: 900,
+                        fontSize: 'clamp(12px, 1.15vw, 24px)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.03em',
+                        transform: 'skewX(-18deg)',
+                    }}
+                >
+                    <span style={{ display: 'inline-block', transform: 'skewX(18deg)' }}>{card.label}</span>
                 </div>
+                <p style={{ margin: '8px 0 0', fontFamily: '"Brush Script MT", "Segoe Script", cursive', color: '#2a2a2a', fontSize: 'clamp(16px, 1.35vw, 30px)' }}>{card.caption}</p>
+            </div>
+        </article>
+    ))}
+</div>
             </div>
         </section>
     );
