@@ -15,24 +15,23 @@ export default function Header({ isVisible = true }: { isVisible?: boolean }) {
 
     return (
         <header
-            className={`fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm transition-all duration-500 ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
+            className={`fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm transition-all duration-500 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
         >
             <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6 lg:px-8">
-   
-  <Link href="/" className="group">
-  <img
-    src="/images/logo JFci 25 ans_page-0001.jpg"
-    alt="J Côte d'Ivoire logo"
-    className="h-16 w-16 object-contain"
-    style={{ mixBlendMode: 'multiply' }}
-  />
-</Link>
-                <nav className="hidden items-center gap-8 md:flex">
+                <Link href="/" className="group">
+                    <img
+                        src="/images/logo JFci 25 ans_page-0001.jpg"
+                        alt="J Côte d'Ivoire logo"
+                        className="h-20 w-20 object-contain md:h-24 md:w-24"
+                        style={{ mixBlendMode: 'multiply' }}
+                    />
+                </Link>
+                <nav className="hidden items-center gap-10 md:flex">
                     {navigationItems.map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
-                            className="font-['Inter'] text-sm font-medium text-[#071A3D] transition-colors duration-300 hover:text-[#123C8C]"
+                            className="font-['Inter'] text-base font-semibold text-[#071A3D] transition-colors duration-300 hover:text-[#123C8C]"
                         >
                             {item.label}
                         </Link>
@@ -42,7 +41,7 @@ export default function Header({ isVisible = true }: { isVisible?: boolean }) {
                 <div className="flex items-center gap-3">
                     <Link
                         href="/convention-25-ans"
-                        className="hidden rounded-full bg-[#F5B400] px-5 py-2.5 font-['Inter'] text-sm font-semibold text-[#071A3D] transition-all duration-300 hover:brightness-95 md:inline-flex"
+                        className="hidden rounded-full bg-[#F5B400] px-6 py-3 font-['Inter'] text-base font-bold text-[#071A3D] transition-all duration-300 hover:brightness-95 md:inline-flex"
                     >
                         Convention 25 ans
                     </Link>
@@ -70,7 +69,7 @@ export default function Header({ isVisible = true }: { isVisible?: boolean }) {
                         <Link
                             key={item.href}
                             href={item.href}
-                            className="rounded-md px-2 py-2 font-['Inter'] text-sm font-medium text-[#071A3D] transition-colors duration-300 hover:bg-slate-50 hover:text-[#123C8C]"
+                            className="rounded-md px-2 py-2 font-['Inter'] text-base font-semibold text-[#071A3D] transition-colors duration-300 hover:bg-slate-50 hover:text-[#123C8C]"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             {item.label}
