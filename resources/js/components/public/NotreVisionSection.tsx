@@ -1,106 +1,62 @@
-import { ArrowRight, BadgeCheck } from 'lucide-react';
-
-import { Hero } from '@/components/ui/hero-with-group-of-images-text-and-two-buttons';
-
-interface VisionPoint {
-    title: string;
-    description: string;
-}
-
-const visionPoints: VisionPoint[] = [
-    {
-        title: 'FOI',
-        description: 'Grandir dans une relation personnelle avec Dieu',
-    },
-    {
-        title: 'UNITÉ',
-        description: 'Construire une génération connectée et solidaire',
-    },
-    {
-        title: 'MISSION',
-        description: 'Servir, évangéliser et agir avec impact',
-    },
-    {
-        title: 'IMPACT',
-        description: 'Transformer la société par Christ',
-    },
-];
+import { Link } from '@inertiajs/react';
+import { ArrowRight } from 'lucide-react';
 
 export default function NotreVisionSection() {
     return (
-        <section className="bg-[#efede8] px-5 py-14 sm:px-8 lg:px-14 lg:py-20">
-            <div className="mx-auto grid w-full max-w-[1580px] gap-10 lg:grid-cols-[1.02fr_1fr] lg:gap-14">
-                <div className="overflow-hidden">
+        <section className="bg-[#efede8] px-5 py-14 sm:px-8 lg:px-16 lg:py-16">
+           <div className="mx-auto flex w-full max-w-[1100px] flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-24 lg:pl-24">
+                <div className="w-full shrink-0 overflow-hidden rounded-3xl lg:w-[380px]">
                     <img
-                        src="/images/image 7.jpg"
+                        src="/images/image .jpg"
                         alt="Jeunes de la JFCI en pleine activité"
-                        className="h-full min-h-[340px] w-full object-cover lg:min-h-[640px]"
+                       className="h-[440px] w-full object-contain bg-[#efede8]"
                     />
                 </div>
 
                 <div className="flex flex-col justify-center">
-                    <p className="mb-5 inline-flex items-center gap-4 text-[11px] font-semibold tracking-[0.22em] text-[#c49f52] uppercase">
-                        <span className="h-px w-14 bg-[#c49f52]" />
-                        NOTRE VISION
+                    <p className="mb-4 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.26em] text-[#c49f52]">
+                        <span className="h-px w-10 bg-[#c49f52]" />
+                        À PROPOS DE LA JFCI
                     </p>
 
-                    <h2 className="text-4xl leading-[1.04] font-semibold tracking-tight text-[#111] sm:text-5xl">
-                        Une jeunesse de précision,
-                        <span className="text-[#c49f52]"> ancrée en Christ.</span>
+                    <h2 className="max-w-[26ch] text-[2rem] font-semibold leading-[1.1] tracking-tight text-[#111] sm:text-[2.4rem]">
+                        Le département jeunesse de{' '}
+                        <span className="text-[#c49f52]">
+                            l&apos;Église Foursquare Côte d&apos;Ivoire.
+                        </span>
                     </h2>
 
-                    <p className="mt-6 max-w-[68ch] text-[1.05rem] leading-8 text-[#232323]/80">
-                        Former une génération enracinée dans la foi, unie dans
-                        l’amour et engagée pour impacter le monde pour Christ.
+                    <span className="my-5 block h-px w-12 bg-[#c49f52]/40" />
+
+                    <p className="max-w-[48ch] text-[1rem] leading-[1.85] text-[#2a2a2a]/75">
+                        La Jeunesse Foursquare Côte d&apos;Ivoire accompagne, forme et mobilise
+                        les jeunes pour vivre pleinement leur foi, servir leur prochain et
+                        impacter leur génération pour Christ.
                     </p>
 
-                    <p className="mt-5 max-w-[68ch] text-[1.03rem] leading-8 text-[#232323]/80">
-                        La Jeunesse Foursquare Côte d’Ivoire est le département
-                        jeunesse de l’Église Foursquare Côte d’Ivoire. Elle
-                        accompagne, forme et mobilise les jeunes pour vivre
-                        pleinement leur foi et influencer leur génération.
+                    <p className="mt-4 max-w-[48ch] text-[1rem] leading-[1.85] text-[#2a2a2a]/75">
+                        Elle rassemble une jeunesse passionnée autour de la foi, de
+                        l&apos;unité, de la mission et de l&apos;impact.
                     </p>
-
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                        {visionPoints.map((point) => (
-                            <article
-                                key={point.title}
-                                className="border border-[#dad3c6] bg-white/40 px-5 py-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.07)]"
-                            >
-                                <p className="flex items-center gap-3 text-xl font-semibold text-[#111]">
-                                    <BadgeCheck
-                                        size={18}
-                                        className="text-[#c49f52]"
-                                    />
-                                    {point.title}
-                                </p>
-                                <p className="mt-1 text-base leading-relaxed text-[#262626]/75">
-                                    {point.description}
-                                </p>
-                            </article>
-                        ))}
-                    </div>
 
                     <div className="mt-8 flex flex-wrap gap-3">
-                        <a
+                        <Link
                             href="/a-propos"
-                            className="inline-flex items-center gap-2 border border-[#1c1c1c] px-8 py-3 text-sm font-semibold tracking-[0.14em] text-[#1c1c1c] uppercase transition hover:bg-black/5"
+                            className="inline-flex items-center gap-2 border border-[#1c1c1c] px-7 py-[11px] text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#1c1c1c] transition hover:bg-black/5"
                         >
                             Notre histoire
-                            <ArrowRight size={15} />
-                        </a>
-                        <a
+                            <ArrowRight size={14} />
+                        </Link>
+
+                        <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 bg-[#c49f52] px-8 py-3 text-sm font-semibold tracking-[0.14em] text-white uppercase transition hover:bg-[#b28f48]"
+                            className="inline-flex items-center gap-2 bg-[#c49f52] px-7 py-[11px] text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#b28f48]"
                         >
                             Contact
-                            <ArrowRight size={15} />
-                        </a>
+                            <ArrowRight size={14} />
+                        </Link>
                     </div>
                 </div>
-            </div>
-            <div className="mt-8 border-t border-[#dad3c6] pt-8">
-                <Hero />
             </div>
         </section>
     );
