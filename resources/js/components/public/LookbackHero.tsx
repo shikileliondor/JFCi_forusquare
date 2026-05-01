@@ -74,14 +74,14 @@ export default function LookbackHero() {
                 .hero-icon:nth-child(4) { animation-delay: 0.99s; }
                 .hero-cta { animation: heroButtonGlow 1.5s ease-out 0.9s 1 both; }
             `}</style>
-            <div className="mx-auto max-w-[1550px] rounded-[40px] border border-[#ece8df] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
+            <div className="mx-auto max-w-[1420px] rounded-[40px] border border-[#ece8df] bg-white px-6 py-6 shadow-[0_22px_60px_rgba(0,0,0,0.12)] lg:px-10 lg:py-8">
                 <div className="grid gap-8 xl:grid-cols-[0.9fr_1.45fr]">
                     <div className="flex flex-col justify-between">
                         <div className="space-y-3">
                             <p className="hero-animate font-mono text-[11px] font-semibold tracking-[0.22em] text-[#b8811f] uppercase">
                                 FOI • UNITÉ • MISSION • IMPACT
                             </p>
-                            <h1 className="mt-5 font-['Anton'] text-[3rem] leading-[0.95] tracking-tight uppercase sm:text-[4.15rem]">
+                            <h1 className="mt-5 font-['Anton'] text-[2.7rem] leading-[0.95] tracking-tight uppercase sm:text-[3.75rem]">
                                 {titleLines.map((line, index) => (
                                     <span
                                         key={line}
@@ -159,7 +159,7 @@ export default function LookbackHero() {
                             <img
                                 src="/images/image 7.jpg"
                                 alt="Foule de jeunes en louange pendant le rassemblement"
-                                className="hero-main-image h-[300px] w-full rounded-xl object-cover md:h-[400px]"
+                                className="hero-main-image h-[270px] w-full rounded-xl object-cover md:h-[360px]"
                             />
                         </article>
 
