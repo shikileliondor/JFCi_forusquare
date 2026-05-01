@@ -146,7 +146,7 @@ export default function LookbackHero() {
                     src={card.src}
                     alt={card.alt}
                     style={{
-                        width: '100%',
+                        width: '85%',
                         aspectRatio: '3 / 4',
                         objectFit: 'cover',
                         objectPosition: 'center',
