@@ -43,9 +43,16 @@ export default function LookbackHero() {
 
                             <div className="mt-5 h-[2px] w-14 bg-[#b8811f]" />
                             <p className="mt-5 max-w-md text-base text-[#2f2f2f]">
-                                Une génération appelée à adorer, servir, se connecter et impacter le monde pour Christ.
+                                Une génération qui adore.<br />
+                                Une famille qui sert.<br />
+                                Un peuple qui impacte le monde pour Christ.
                             </p>
                         </div>
+
+                        <p className="mt-5 max-w-md text-[1.06rem] leading-relaxed text-[#4a4a4a]">
+                            Nous existons pour glorifier Dieu, bâtir des relations authentiques et impacter notre génération avec
+                            l&apos;amour de Jésus.
+                        </p>
 
                         <div className="mt-6 flex flex-wrap gap-3">
                             <Link
