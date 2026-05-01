@@ -103,39 +103,7 @@ const styles: Record<string, CSSProperties> = {
 export default function LeaderSupportSection() {
     return (
         <section style={styles.section}>
-            <div style={styles.container}>
-                <div>
-                    <h2 style={styles.title}>Are you a Foursquare leader? Find what you need!</h2>
-                    <p style={styles.description}>
-                        Whether you are serving in a local church or in a unique location around the world, the
-                        Foursquare One Team is here to help with everything from credentialing to retirement.
-                    </p>
-
-                    <ul style={styles.linkList}>
-                        <li style={styles.linkItem}>
-                            <a href="#" style={styles.link}>
-                                <span>Get Leader + Church Support</span>
-                                <span aria-hidden="true">&#8594;</span>
-                            </a>
-                        </li>
-                        <li style={styles.linkItem}>
-                            <a href="#" style={styles.link}>
-                                <span>Connect with Foursquare Ministries</span>
-                                <span aria-hidden="true">&#8594;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div style={styles.visualWrap}>
-                    <div style={styles.beigeShape} />
-                    <div style={styles.greenShape} />
-                    <div style={styles.imageCard}>
-                        <img src="/images/convention.jpg" alt="Leaders speaking on stage" style={styles.image} />
-                    </div>
-                    <div style={styles.scribble} />
-                </div>
-            </div>
+            
         </section>
     );
 }
