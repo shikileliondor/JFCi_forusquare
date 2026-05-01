@@ -1,5 +1,6 @@
 import { Head } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
+import ConventionModal from '@/components/ConventionModal';
 import Header from '@/components/public/Header';
 import LookbackHero from '@/components/public/LookbackHero';
 import NotreVisionSection from '@/components/public/NotreVisionSection';
@@ -37,6 +38,7 @@ export default function Accueil() {
                 />
             </Head>
             <Header isVisible={isHeaderVisible} />
+            <ConventionModal />
             <BackgroundComponents>
                 <main>
                     <LookbackHero />
