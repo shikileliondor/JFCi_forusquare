@@ -26,7 +26,7 @@ export default function NotreVisionSection() {
                         <img
                             src="/images/image .jpg"
                             alt="Jeunes de la JFCI en pleine activité"
-                            className="h-[430px] w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
+                            className="h-[390px] w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
                         />
                     </div>
                 </motion.div>
